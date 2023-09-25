@@ -1,0 +1,2 @@
+python fx7_log_separator.py
+pause

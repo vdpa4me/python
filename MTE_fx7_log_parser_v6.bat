@@ -1,0 +1,2 @@
+python MTE_fx7_log_parser_v6.py
+pause

@@ -1,0 +1,2 @@
+python MTE_fx7_DiscoverFailHistory.py
+pause

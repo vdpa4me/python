@@ -1,0 +1,2 @@
+python MTE_fx7_FindingCPULockup.py
+pause
