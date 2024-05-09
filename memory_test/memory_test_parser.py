@@ -20,7 +20,7 @@ if __name__ == '__main__':
             if ext in '.log' :
                 temp_dic = {}
                 # new file for writing
-                new_file_name = file+"_DIMM_CPU.csv"
+                new_file_name = file+"_DIMM.csv"
                 new_file_name = os.path.join(dir_name, new_file_name)
                 temp_dic['read'] = file_path
                 temp_dic['write']= new_file_name
