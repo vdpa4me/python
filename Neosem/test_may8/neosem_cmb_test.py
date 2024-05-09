@@ -27,7 +27,7 @@ elif sys.argv[1] == "4":
     ip = "192.168.0.4"
 elif sys.argv[1] == "5":
     cmb = "CMB5"
-    ip = "192.168.0.5"
+    ip = "192.168.0.6"
 elif sys.argv[1] == "6":
     cmb = "CMB6"
     ip = "192.168.0.6"
@@ -71,16 +71,16 @@ tn.write(b"./start_mtest.sh > /root/log/dimm_temp.log &\n")
 time.sleep(60)
 
 #CPU thermal recording 
-# print("2. start ptst")
-# tn.write(b"cd /root/ptat\n")
-# tn.write(b"cd log\n")
-# tn.write(b"rm *\n")
-# tn.write(b"cd ..\n")
-# tn.write(b"./ptat -log -csv -wf -i 5000000 -t 0 &\n")
+print("2. start ptst")
+tn.write(b"cd /root/ptat\n")
+tn.write(b"cd log\n")
+tn.write(b"rm *\n")
+tn.write(b"cd ..\n")
+tn.write(b"./ptat -log -csv -wf -i 5000000 -t 0 &\n")
 print("3. wait 15 minutes")
 time.sleep(60*15)
-# print("4. end ptat")
-# tn.write(b"pkill -9 -f ptat\n")      
+print("4. end ptat")
+tn.write(b"pkill -9 -f ptat\n")      
 print("5. end mtest")
 tn.write(b"cd /root/test\n")
 tn.write(b"pkill -9 -f start_mtest.sh\n")
@@ -94,9 +94,9 @@ print("7. logging")
 tn.write(b"### DIMMTEMP_START ###\n")
 tn.write(b"cat /root/log/dimm_temp.log\n")
 tn.write(b"### DIMMTEMP_END ###\n")
-# tn.write(b"### CPUTEMP_START ###\n")
-# tn.write(b"cat /root/ptat/log/*mon*\n")  
-# tn.write(b"### CPUTEMP_END ###\n")
+tn.write(b"### CPUTEMP_START ###\n")
+tn.write(b"cat /root/ptat/log/*mon*\n")  
+tn.write(b"### CPUTEMP_END ###\n")
 
 tn.write(b"exit\n")
 

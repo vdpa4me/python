@@ -1,0 +1,2 @@
+python DIMM_CPU_anlysis.py
+pause

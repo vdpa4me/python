@@ -1,0 +1,1523 @@
+
+mkdir /root/log
+cd /root/log
+rm *
+cd /root/test
+./start_mtest.sh > /root/log/dimm_temp.log &
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 6.5.0-28-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+  System information as of Wed May  8 08:34:23 AM UTC 2024
+
+  System load:  10.27001953125      Temperature:           43.0 C
+  Usage of /:   13.1% of 115.78GB   Processes:             2480
+  Memory usage: 0%                  Users logged in:       1
+  Swap usage:   2%                  IPv4 address for ens9: 192.168.0.12
+
+
+Expanded Security Maintenance for Applications is not enabled.
+
+3 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+
+Last login: Wed May  8 08:26:43 UTC 2024 on pts/0
+root@neosem:~# mkdir /root/log
+mkdir: cannot create directory ‘/root/log’: File exists
+root@neosem:~# cd /root/log
+root@neosem:~/log# rm *
+root@neosem:~/log# cd /root/test
+root@neosem:~/test# ./start_mtest.sh > /root/log/dimm_temp.log &
+[1] 22158
+root@neosem:~/test# ./start_mtest.sh: line 56: 22760 Killed                  MEMTESTER_TEST_MASK=$TEST_MASK /usr/sbin/memtester ${MEMPERTHREAD}K 1 > $MEMTESTER_LOG 2> $MEMTESTER_ERROR_LOG
+cd /root/ptat
+root@neosem:~/ptat# cd log
+root@neosem:~/ptat/log# rm *
+root@neosem:~/ptat/log# cd ..
+root@neosem:~/ptat# ./ptat -log -csv -wf -i 5000000 -t 0 &
+[2] 23050
+root@neosem:~/ptat# 
+Command: ./ptat -log -csv -wf -i 5000000 -t 0
+
+Intel(R) PTAT - Server Edition 4.4.0
+Release Date: 12/19/2023
+Copyright (C) 2023 Intel Corporation. All rights reserved.
+Intel Confidential
+
+[?7h>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> System Info:                   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Host Name:                           neosem
+Host IP:                             192.168.0.12
+OS Name:                             Ubuntu 22.04.4 LTS 22.04
+Kernel Version:                      Linux 6.5.0-28-generic #29~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr  4 14:39:20 UTC 2
+BIOS Version:                        American Megatrends Inc., 0.10.00, 02/29/2024
+Processor(s):                        2 Processor(s) Installed.
+DIMM(s):                             24 DIMM(s) Installed.
+Total System Memory:                 1547628 MB
+Available System Memory:             5299 MB
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Processor: [CPU_0]             <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+CPU ID:                              0x000A06D0 (Family 6 Model ADh Stepping 0)
+CPU Brand Name:                      GENUINE INTEL(R) XEON(R)
+CPU Code Name:                       Granite Rapids
+CPU Type:                            Engineering Sample
+CPU Segment:                         Server-AP
+CPU PPIN:                            0xA1C42151DF61F42F
+CPU Base Frequency:                  2400 MHz
+CPU Minimum Frequency:               800 MHz
+CPU Maximum Turbo Frequency:         3100 MHz
+Uncore Frequency:                   
+CMPT                                
+    Min:                             800 MHz
+    Max:                             2300 MHz
+    ELC Ratio:                       800 MHz
+    ELC Threshold:                   0
+CMPT                                
+    Min:                             800 MHz
+    Max:                             2300 MHz
+    ELC Ratio:                       800 MHz
+    ELC Threshold:                   0
+CMPT                                
+    Min:                             800 MHz
+    Max:                             2300 MHz
+    ELC Ratio:                       800 MHz
+    ELC Threshold:                   0
+IO                                  
+    Min:                             400 MHz
+    Max:                             2500 MHz
+    ELC Ratio:                       400 MHz
+    ELC Threshold:                   0
+IO                                  
+    Min:                             400 MHz
+    Max:                             2500 MHz
+    ELC Ratio:                       400 MHz
+    ELC Threshold:                   0
+L2 Cache:                            72 x 2048 KB
+L3 Cache:                            442368 KB
+Hyper-threading:                     Enabled
+Microcode Update Revision:           0x80000594
+Number of Physcial Core(s):          72
+Number of Logical Core(s):           144
+Turbo Boost:                         Enabled
+Turbo Boost Frequency:              
+CMPT: 1
+  SSE P0:
+    1  - 12 Cores : 3100  (MHz)
+    13 - 14 Cores : 3100  (MHz)
+    15 - 16 Cores : 3100  (MHz)
+    17 - 18 Cores : 3100  (MHz)
+    19 - 20 Cores : 3100  (MHz)
+    21 - 22 Cores : 3100  (MHz)
+    23 - 24 Cores : 3100  (MHz)
+  AVX2 P0:
+    1  - 12 Cores : 3000  (MHz)
+    13 - 14 Cores : 3000  (MHz)
+    15 - 16 Cores : 3000  (MHz)
+    17 - 18 Cores : 3000  (MHz)
+    19 - 20 Cores : 3000  (MHz)
+    21 - 22 Cores : 3000  (MHz)
+    23 - 24 Cores : 3000  (MHz)
+  AVX512 P0:
+    1  - 12 Cores : 2700  (MHz)
+    13 - 14 Cores : 2700  (MHz)
+    15 - 16 Cores : 2700  (MHz)
+    17 - 18 Cores : 2700  (MHz)
+    19 - 20 Cores : 2700  (MHz)
+    21 - 22 Cores : 2700  (MHz)
+    23 - 24 Cores : 2700  (MHz)
+  AVX512 H P0:
+    1  - 12 Cores : 2600  (MHz)
+    13 - 14 Cores : 2600  (MHz)
+    15 - 16 Cores : 2600  (MHz)
+    17 - 18 Cores : 2600  (MHz)
+    19 - 20 Cores : 2600  (MHz)
+    21 - 22 Cores : 2600  (MHz)
+    23 - 24 Cores : 2600  (MHz)
+  AMX P0:
+    1  - 12 Cores : 1700  (MHz)
+    13 - 14 Cores : 1700  (MHz)
+    15 - 16 Cores : 1700  (MHz)
+    17 - 18 Cores : 1700  (MHz)
+    19 - 20 Cores : 1700  (MHz)
+    21 - 22 Cores : 1700  (MHz)
+    23 - 24 Cores : 1700  (MHz)
+CMPT: 2
+  SSE P0:
+    1  - 12 Cores : 3100  (MHz)
+    13 - 14 Cores : 3100  (MHz)
+    15 - 16 Cores : 3100  (MHz)
+    17 - 18 Cores : 3100  (MHz)
+    19 - 20 Cores : 3100  (MHz)
+    21 - 22 Cores : 3100  (MHz)
+    23 - 24 Cores : 3100  (MHz)
+  AVX2 P0:
+    1  - 12 Cores : 3000  (MHz)
+    13 - 14 Cores : 3000  (MHz)
+    15 - 16 Cores : 3000  (MHz)
+    17 - 18 Cores : 3000  (MHz)
+    19 - 20 Cores : 3000  (MHz)
+    21 - 22 Cores : 3000  (MHz)
+    23 - 24 Cores : 3000  (MHz)
+  AVX512 P0:
+    1  - 12 Cores : 2700  (MHz)
+    13 - 14 Cores : 2700  (MHz)
+    15 - 16 Cores : 2700  (MHz)
+    17 - 18 Cores : 2700  (MHz)
+    19 - 20 Cores : 2700  (MHz)
+    21 - 22 Cores : 2700  (MHz)
+    23 - 24 Cores : 2700  (MHz)
+  AVX512 H P0:
+    1  - 12 Cores : 2600  (MHz)
+    13 - 14 Cores : 2600  (MHz)
+    15 - 16 Cores : 2600  (MHz)
+    17 - 18 Cores : 2600  (MHz)
+    19 - 20 Cores : 2600  (MHz)
+    21 - 22 Cores : 2600  (MHz)
+    23 - 24 Cores : 2600  (MHz)
+  AMX P0:
+    1  - 12 Cores : 1700  (MHz)
+    13 - 14 Cores : 1700  (MHz)
+    15 - 16 Cores : 1700  (MHz)
+    17 - 18 Cores : 1700  (MHz)
+    19 - 20 Cores : 1700  (MHz)
+    21 - 22 Cores : 1700  (MHz)
+    23 - 24 Cores : 1700  (MHz)
+CMPT: 3
+  SSE P0:
+    1  - 12 Cores : 3100  (MHz)
+    13 - 14 Cores : 3100  (MHz)
+    15 - 16 Cores : 3100  (MHz)
+    17 - 18 Cores : 3100  (MHz)
+    19 - 20 Cores : 3100  (MHz)
+    21 - 22 Cores : 3100  (MHz)
+    23 - 24 Cores : 3100  (MHz)
+  AVX2 P0:
+    1  - 12 Cores : 3000  (MHz)
+    13 - 14 Cores : 3000  (MHz)
+    15 - 16 Cores : 3000  (MHz)
+    17 - 18 Cores : 3000  (MHz)
+    19 - 20 Cores : 3000  (MHz)
+    21 - 22 Cores : 3000  (MHz)
+    23 - 24 Cores : 3000  (MHz)
+  AVX512 P0:
+    1  - 12 Cores : 2700  (MHz)
+    13 - 14 Cores : 2700  (MHz)
+    15 - 16 Cores : 2700  (MHz)
+    17 - 18 Cores : 2700  (MHz)
+    19 - 20 Cores : 2700  (MHz)
+    21 - 22 Cores : 2700  (MHz)
+    23 - 24 Cores : 2700  (MHz)
+  AVX512 H P0:
+    1  - 12 Cores : 2600  (MHz)
+    13 - 14 Cores : 2600  (MHz)
+    15 - 16 Cores : 2600  (MHz)
+    17 - 18 Cores : 2600  (MHz)
+    19 - 20 Cores : 2600  (MHz)
+    21 - 22 Cores : 2600  (MHz)
+    23 - 24 Cores : 2600  (MHz)
+  AMX P0:
+    1  - 12 Cores : 1700  (MHz)
+    13 - 14 Cores : 1700  (MHz)
+    15 - 16 Cores : 1700  (MHz)
+    17 - 18 Cores : 1700  (MHz)
+    19 - 20 Cores : 1700  (MHz)
+    21 - 22 Cores : 1700  (MHz)
+    23 - 24 Cores : 1700  (MHz)
+OVOLT_OVRD Supported:                1
+OVOLT_OVRD Disabled:                 0
+Platform ID:                         0x0
+Platform Info:                       0x406082CF98018000
+Thermal Design Power (TDP):          500 W
+Power Limit 1 - Long Duration:       Enabled, Clamp ON , Power = 400 W, Time = 10.00 sec
+Power Limit 2 - Short Duration:      Enabled, Clamp ON , Power = 400 W
+Tprochot:                            106 C
+TCC Offset:                          0
+CAPID0:                              0x41908129
+CAPID1:                              0x02C00480
+CAPID2:                              0x04A2C403
+CAPID3:                              0x00100E11
+CAPID4:                              0x06800CD2
+CAPID5:                              0x0B800000
+CAPID6:                              0x00000000
+CAPID7:                              0x00000000
+CAPID8:                              0x00000000
+CAPID9:                              0x00000000
+CAPID10:                             0x345300FF
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Processor: [CPU_1]             <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+CPU ID:                              0x000A06D0 (Family 6 Model ADh Stepping 0)
+CPU Brand Name:                      GENUINE INTEL(R) XEON(R)
+CPU Code Name:                       Granite Rapids
+CPU Type:                            Engineering Sample
+CPU Segment:                         Server-AP
+CPU PPIN:                            0xA1C41D51D743AF28
+CPU Base Frequency:                  2400 MHz
+CPU Minimum Frequency:               800 MHz
+CPU Maximum Turbo Frequency:         3100 MHz
+Uncore Frequency:                   
+CMPT                                
+    Min:                             800 MHz
+    Max:                             2300 MHz
+    ELC Ratio:                       800 MHz
+    ELC Threshold:                   0
+CMPT                                
+    Min:                             800 MHz
+    Max:                             2300 MHz
+    ELC Ratio:                       800 MHz
+    ELC Threshold:                   0
+CMPT                                
+    Min:                             800 MHz
+    Max:                             2300 MHz
+    ELC Ratio:                       800 MHz
+    ELC Threshold:                   0
+IO                                  
+    Min:                             400 MHz
+    Max:                             2500 MHz
+    ELC Ratio:                       400 MHz
+    ELC Threshold:                   0
+IO                                  
+    Min:                             400 MHz
+    Max:                             2500 MHz
+    ELC Ratio:                       400 MHz
+    ELC Threshold:                   0
+L2 Cache:                            72 x 2048 KB
+L3 Cache:                            442368 KB
+Hyper-threading:                     Enabled
+Microcode Update Revision:           0x80000594
+Number of Physcial Core(s):          72
+Number of Logical Core(s):           144
+Turbo Boost:                         Enabled
+Turbo Boost Frequency:              
+CMPT: 1
+  SSE P0:
+    1  - 12 Cores : 3100  (MHz)
+    13 - 14 Cores : 3100  (MHz)
+    15 - 16 Cores : 3100  (MHz)
+    17 - 18 Cores : 3100  (MHz)
+    19 - 20 Cores : 3100  (MHz)
+    21 - 22 Cores : 3100  (MHz)
+    23 - 24 Cores : 3100  (MHz)
+  AVX2 P0:
+    1  - 12 Cores : 3000  (MHz)
+    13 - 14 Cores : 3000  (MHz)
+    15 - 16 Cores : 3000  (MHz)
+    17 - 18 Cores : 3000  (MHz)
+    19 - 20 Cores : 3000  (MHz)
+    21 - 22 Cores : 3000  (MHz)
+    23 - 24 Cores : 3000  (MHz)
+  AVX512 P0:
+    1  - 12 Cores : 2700  (MHz)
+    13 - 14 Cores : 2700  (MHz)
+    15 - 16 Cores : 2700  (MHz)
+    17 - 18 Cores : 2700  (MHz)
+    19 - 20 Cores : 2700  (MHz)
+    21 - 22 Cores : 2700  (MHz)
+    23 - 24 Cores : 2700  (MHz)
+  AVX512 H P0:
+    1  - 12 Cores : 2600  (MHz)
+    13 - 14 Cores : 2600  (MHz)
+    15 - 16 Cores : 2600  (MHz)
+    17 - 18 Cores : 2600  (MHz)
+    19 - 20 Cores : 2600  (MHz)
+    21 - 22 Cores : 2600  (MHz)
+    23 - 24 Cores : 2600  (MHz)
+  AMX P0:
+    1  - 12 Cores : 1700  (MHz)
+    13 - 14 Cores : 1700  (MHz)
+    15 - 16 Cores : 1700  (MHz)
+    17 - 18 Cores : 1700  (MHz)
+    19 - 20 Cores : 1700  (MHz)
+    21 - 22 Cores : 1700  (MHz)
+    23 - 24 Cores : 1700  (MHz)
+CMPT: 2
+  SSE P0:
+    1  - 12 Cores : 3100  (MHz)
+    13 - 14 Cores : 3100  (MHz)
+    15 - 16 Cores : 3100  (MHz)
+    17 - 18 Cores : 3100  (MHz)
+    19 - 20 Cores : 3100  (MHz)
+    21 - 22 Cores : 3100  (MHz)
+    23 - 24 Cores : 3100  (MHz)
+  AVX2 P0:
+    1  - 12 Cores : 3000  (MHz)
+    13 - 14 Cores : 3000  (MHz)
+    15 - 16 Cores : 3000  (MHz)
+    17 - 18 Cores : 3000  (MHz)
+    19 - 20 Cores : 3000  (MHz)
+    21 - 22 Cores : 3000  (MHz)
+    23 - 24 Cores : 3000  (MHz)
+  AVX512 P0:
+    1  - 12 Cores : 2700  (MHz)
+    13 - 14 Cores : 2700  (MHz)
+    15 - 16 Cores : 2700  (MHz)
+    17 - 18 Cores : 2700  (MHz)
+    19 - 20 Cores : 2700  (MHz)
+    21 - 22 Cores : 2700  (MHz)
+    23 - 24 Cores : 2700  (MHz)
+  AVX512 H P0:
+    1  - 12 Cores : 2600  (MHz)
+    13 - 14 Cores : 2600  (MHz)
+    15 - 16 Cores : 2600  (MHz)
+    17 - 18 Cores : 2600  (MHz)
+    19 - 20 Cores : 2600  (MHz)
+    21 - 22 Cores : 2600  (MHz)
+    23 - 24 Cores : 2600  (MHz)
+  AMX P0:
+    1  - 12 Cores : 1700  (MHz)
+    13 - 14 Cores : 1700  (MHz)
+    15 - 16 Cores : 1700  (MHz)
+    17 - 18 Cores : 1700  (MHz)
+    19 - 20 Cores : 1700  (MHz)
+    21 - 22 Cores : 1700  (MHz)
+    23 - 24 Cores : 1700  (MHz)
+CMPT: 3
+  SSE P0:
+    1  - 12 Cores : 3100  (MHz)
+    13 - 14 Cores : 3100  (MHz)
+    15 - 16 Cores : 3100  (MHz)
+    17 - 18 Cores : 3100  (MHz)
+    19 - 20 Cores : 3100  (MHz)
+    21 - 22 Cores : 3100  (MHz)
+    23 - 24 Cores : 3100  (MHz)
+  AVX2 P0:
+    1  - 12 Cores : 3000  (MHz)
+    13 - 14 Cores : 3000  (MHz)
+    15 - 16 Cores : 3000  (MHz)
+    17 - 18 Cores : 3000  (MHz)
+    19 - 20 Cores : 3000  (MHz)
+    21 - 22 Cores : 3000  (MHz)
+    23 - 24 Cores : 3000  (MHz)
+  AVX512 P0:
+    1  - 12 Cores : 2700  (MHz)
+    13 - 14 Cores : 2700  (MHz)
+    15 - 16 Cores : 2700  (MHz)
+    17 - 18 Cores : 2700  (MHz)
+    19 - 20 Cores : 2700  (MHz)
+    21 - 22 Cores : 2700  (MHz)
+    23 - 24 Cores : 2700  (MHz)
+  AVX512 H P0:
+    1  - 12 Cores : 2600  (MHz)
+    13 - 14 Cores : 2600  (MHz)
+    15 - 16 Cores : 2600  (MHz)
+    17 - 18 Cores : 2600  (MHz)
+    19 - 20 Cores : 2600  (MHz)
+    21 - 22 Cores : 2600  (MHz)
+    23 - 24 Cores : 2600  (MHz)
+  AMX P0:
+    1  - 12 Cores : 1700  (MHz)
+    13 - 14 Cores : 1700  (MHz)
+    15 - 16 Cores : 1700  (MHz)
+    17 - 18 Cores : 1700  (MHz)
+    19 - 20 Cores : 1700  (MHz)
+    21 - 22 Cores : 1700  (MHz)
+    23 - 24 Cores : 1700  (MHz)
+OVOLT_OVRD Supported:                1
+OVOLT_OVRD Disabled:                 0
+Platform ID:                         0x0
+Platform Info:                       0x406082CF98018000
+Thermal Design Power (TDP):          500 W
+Power Limit 1 - Long Duration:       Enabled, Clamp ON , Power = 400 W, Time = 10.00 sec
+Power Limit 2 - Short Duration:      Enabled, Clamp ON , Power = 400 W
+Tprochot:                            106 C
+TCC Offset:                          0
+CAPID0:                              0x41908129
+CAPID1:                              0x02C00480
+CAPID2:                              0x04A2C403
+CAPID3:                              0x00100E11
+CAPID4:                              0x06800CD2
+CAPID5:                              0x0B800000
+CAPID6:                              0x00000000
+CAPID7:                              0x00000000
+CAPID8:                              0x00000000
+CAPID9:                              0x00000000
+CAPID10:                             0x345300FF
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Memory: [MEM_0]                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Number of DIMM(s):                   12
+Number of Active Channel(s):         12
+DRAM Power Meter Disabled:           0
+DRAM RAPL Disabled:                  0
+DRAM TDP Power:                      Min = 0.0 W, Max = 220.5 W, Time = 0.00 sec
+DRAM / NVDIMM Info:                 
+  MC 0, Chnl 0, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 1, Chnl 1, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 2, Chnl 2, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 3, Chnl 3, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 4, Chnl 4, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 5, Chnl 5, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 6, Chnl 6, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 7, Chnl 7, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 8, Chnl 8, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 9, Chnl 9, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 10, Chnl 10, Slot 0:            tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 11, Chnl 11, Slot 0:            tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Memory: [MEM_1]                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Number of DIMM(s):                   12
+Number of Active Channel(s):         12
+DRAM Power Meter Disabled:           0
+DRAM RAPL Disabled:                  0
+DRAM TDP Power:                      Min = 0.0 W, Max = 220.5 W, Time = 0.00 sec
+DRAM / NVDIMM Info:                 
+  MC 0, Chnl 0, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 1, Chnl 1, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 2, Chnl 2, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 3, Chnl 3, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 4, Chnl 4, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 5, Chnl 5, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 6, Chnl 6, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 7, Chnl 7, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 8, Chnl 8, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 9, Chnl 9, Slot 0:              tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 10, Chnl 10, Slot 0:            tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+  MC 11, Chnl 11, Slot 0:            tempLo: 82 C, tempMid: 83 C, tempHi: 85 C
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PTAT Current Settings:         <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+CPU Test Selected:                   0
+MEM Test Selected:                   0
+CPU Mask:                            0xFFFFFFFF
+CPU Core Mask:                       0xFFFFFFFFFFFFFFFF
+CPU Thread Mask:                     0xFFFFFFFFFFFFFFFF
+MEM Mask:                            0xFFFF
+MEM Core Mask:                       0xFFFFFFFFFFFFFFFF
+MEM Thread Mask:                     0xFFFFFFFFFFFFFFFF
+Core Power Level:                    100
+Memory Power Level:                  100
+Turbo Enabled:                       No
+AVX Test Level:                      1
+Pmax Pre-sync:                       5000 ms
+Pmax Post-sync:                      3000 ms
+Pmax Idle:                           2000 ms
+Run Time:                            0 (Forever)
+PTAT Mon CPU Mask:                   0xFFFFFFFFFFFFFFFF
+PTAT Mon Core Mask:                  0xFFFFFFFFFFFFFFFF
+PTAT Mon MEM Mask:                   0xFFFFFFFF
+PTAT Mon Filter Mask:                0x1F
+PTAT Mon Update Interval:            5000000 usec
+PTAT Mon Long Level:                 0
+PTAT Mon Timestamp:                  No
+Log Enabled:                         Yes
+Log Directory:                       /root/ptat/log
+Log File Prefix:                     <timestamp>
+Log Message File:                    <timestamp>_ptatmsg.csv
+Log Monitor File:                    <timestamp>_ptatmon.csv
+CSV Enabled:                         Yes
+PTAT License Auto Accept:            No
+PTAT Driver Loaded:                  Yes
+
+[05/08/24 08:35:24 UTC] PTAT started.
+
+Press <Ctrl-C> to stop.
+
+
+Log is running in background...
+
+pkill -9 -f ptat
+cd /root/test
+pkill -9 -f start_mtest.sh
+./end_mtest.sh
+/root/fan/fan_control.py --set_fans_pwm 50
+[2]+  Killed                  ./ptat -log -csv -wf -i 5000000 -t 0
+root@neosem:~/ptat# cd /root/test
+root@neosem:~/test# pkill -9 -f start_mtest.sh
+[1]+  Killed                  ./start_mtest.sh > /root/log/dimm_temp.log
+root@neosem:~/test# ./end_mtest.sh
+kill all the memtester processes
+delete all log files
+root@neosem:~/test# /root/fan/fan_control.py --set_fans_pwm 50
+set_fans_pwm: Fan 0 successfully set to PWM 50.
+set_fans_pwm: Fan 1 successfully set to PWM 50.
+set_fans_pwm: Fan 2 successfully set to PWM 50.
+set_fans_pwm: Fan 3 successfully set to PWM 50.
+set_fans_pwm: Fan 4 successfully set to PWM 50.
+set_fans_pwm: Fan 5 successfully set to PWM 50.
+set_fans_pwm: Fan 6 successfully set to PWM 50.
+set_fans_pwm: Fan 7 successfully set to PWM 50.
+root@neosem:~/test# ### DIMMTEMP_START ###
+root@neosem:~/test# cat /root/log/dimm_temp.log
+total memory size is 1584771504 KByte
+TOTAL  = 1584771504 KByte
+REMOVE = 6000000 KByte
+FREE   = 1578771504 KByte
+THREADS=288
+MEMPERTHREAD=5481845
+DIMM FAN to 100%
+set_fans_max: Fan 0 successfully set to PWM 100.
+set_fans_max: Fan 1 successfully set to PWM 100.
+set_fans_max: Fan 2 successfully set to PWM 100.
+set_fans_max: Fan 3 successfully set to PWM 100.
+set_fans_max: Fan 4 successfully set to PWM 100.
+set_fans_max: Fan 5 successfully set to PWM 100.
+set_fans_max: Fan 6 successfully set to PWM 100.
+set_fans_max: Fan 7 successfully set to PWM 100.
+1/288 threads started2/288 threads started3/288 threads started4/288 threads started5/288 threads started6/288 threads started7/288 threads started8/288 threads started9/288 threads started10/288 threads started11/288 threads started12/288 threads started13/288 threads started14/288 threads started15/288 threads started16/288 threads started17/288 threads started18/288 threads started19/288 threads started20/288 threads started21/288 threads started22/288 threads started23/288 threads started24/288 threads started25/288 threads started26/288 threads started27/288 threads started28/288 threads started29/288 threads started30/288 threads started31/288 threads started32/288 threads started33/288 threads started34/288 threads started35/288 threads started36/288 threads started37/288 threads started38/288 threads started39/288 threads started40/288 threads started41/288 threads started42/288 threads started43/288 threads started44/288 threads started45/288 threads started46/288 threads started47/288 threads started48/288 threads started49/288 threads started50/288 threads started51/288 threads started52/288 threads started53/288 threads started54/288 threads started55/288 threads started56/288 threads started57/288 threads started58/288 threads started59/288 threads started60/288 threads started61/288 threads started62/288 threads started63/288 threads started64/288 threads started65/288 threads started66/288 threads started67/288 threads started68/288 threads started69/288 threads started70/288 threads started71/288 threads started72/288 threads started73/288 threads started74/288 threads started75/288 threads started76/288 threads started77/288 threads started78/288 threads started79/288 threads started80/288 threads started81/288 threads started82/288 threads started83/288 threads started84/288 threads started85/288 threads started86/288 threads started87/288 threads started88/288 threads started89/288 threads started90/288 threads started91/288 threads started92/288 threads started93/288 threads started94/288 threads started95/288 threads started96/288 threads started97/288 threads started98/288 threads started99/288 threads started100/288 threads started101/288 threads started102/288 threads started103/288 threads started104/288 threads started105/288 threads started106/288 threads started107/288 threads started108/288 threads started109/288 threads started110/288 threads started111/288 threads started112/288 threads started113/288 threads started114/288 threads started115/288 threads started116/288 threads started117/288 threads started118/288 threads started119/288 threads started120/288 threads started121/288 threads started122/288 threads started123/288 threads started124/288 threads started125/288 threads started126/288 threads started127/288 threads started128/288 threads started129/288 threads started130/288 threads started131/288 threads started132/288 threads started133/288 threads started134/288 threads started135/288 threads started136/288 threads started137/288 threads started138/288 threads started139/288 threads started140/288 threads started141/288 threads started142/288 threads started143/288 threads started144/288 threads started145/288 threads started146/288 threads started147/288 threads started148/288 threads started149/288 threads started150/288 threads started151/288 threads started152/288 threads started153/288 threads started154/288 threads started155/288 threads started156/288 threads started157/288 threads started158/288 threads started159/288 threads started160/288 threads started161/288 threads started162/288 threads started163/288 threads started164/288 threads started165/288 threads started166/288 threads started167/288 threads started168/288 threads started169/288 threads started170/288 threads started171/288 threads started172/288 threads started173/288 threads started174/288 threads started175/288 threads started176/288 threads started177/288 threads started178/288 threads started179/288 threads started180/288 threads started181/288 threads started182/288 threads started183/288 threads started184/288 threads started185/288 threads started186/288 threads started187/288 threads started188/288 threads started189/288 threads started190/288 threads started191/288 threads started192/288 threads started193/288 threads started194/288 threads started195/288 threads started196/288 threads started197/288 threads started198/288 threads started199/288 threads started200/288 threads started201/288 threads started202/288 threads started203/288 threads started204/288 threads started205/288 threads started206/288 threads started207/288 threads started208/288 threads started209/288 threads started210/288 threads started211/288 threads started212/288 threads started213/288 threads started214/288 threads started215/288 threads started216/288 threads started217/288 threads started218/288 threads started219/288 threads started220/288 threads started221/288 threads started222/288 threads started223/288 threads started224/288 threads started225/288 threads started226/288 threads started227/288 threads started228/288 threads started229/288 threads started230/288 threads started231/288 threads started232/288 threads started233/288 threads started234/288 threads started235/288 threads started236/288 threads started237/288 threads started238/288 threads started239/288 threads started240/288 threads started241/288 threads started242/288 threads started243/288 threads started244/288 threads started245/288 threads started246/288 threads started247/288 threads started248/288 threads started249/288 threads started250/288 threads started251/288 threads started252/288 threads started253/288 threads started254/288 threads started255/288 threads started256/288 threads started257/288 threads started258/288 threads started259/288 threads started260/288 threads started261/288 threads started262/288 threads started263/288 threads started264/288 threads started265/288 threads started266/288 threads started267/288 threads started268/288 threads started269/288 threads started270/288 threads started271/288 threads started272/288 threads started273/288 threads started274/288 threads started275/288 threads started276/288 threads started277/288 threads started278/288 threads started279/288 threads started280/288 threads started281/288 threads started282/288 threads started283/288 threads started284/288 threads started285/288 threads started286/288 threads started287/288 threads started288/288 threads startedRead DIMMs Temperature
+Wait for 5 min ...
+Status check ...
+root       22166   22158 95 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22169   22158 95 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22172   22158 94 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22175   22158 94 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22178   22158 94 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22181   22158 94 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22184   22158 94 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22187   22158 93 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22190   22158 93 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22193   22158 93 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22196   22158 93 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22199   22158 92 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22202   22158 92 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22205   22158 92 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22208   22158 92 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22211   22158 91 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22214   22158 91 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22217   22158 91 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22220   22158 91 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22223   22158 90 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22226   22158 90 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22229   22158 90 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22232   22158 90 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22235   22158 89 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22238   22158 89 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22241   22158 89 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22244   22158 88 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22247   22158 88 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22250   22158 88 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22253   22158 87 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22256   22158 87 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22259   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22262   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22265   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22268   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22271   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22274   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22277   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22280   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22283   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22286   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22289   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22292   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22295   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22298   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22301   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22304   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22307   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22310   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22313   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22316   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22319   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22322   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22325   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22328   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22331   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22334   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22337   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22340   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22343   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22346   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22349   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22352   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22355   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22358   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22361   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22364   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22367   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22370   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22373   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22376   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22379   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22382   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22385   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22388   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22391   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22394   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22397   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22400   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22403   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22406   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22409   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22412   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22415   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22418   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22421   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22424   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22427   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22430   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22433   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22436   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22439   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22442   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22445   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22448   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22451   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22454   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22457   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22460   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22463   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22466   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22469   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22472   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22475   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22478   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22481   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22484   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22487   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22490   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22493   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22496   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22499   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22502   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22505   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22508   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22511   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22514   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22517   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22520   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22523   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22526   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22529   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22532   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22535   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22538   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22541   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22544   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22547   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22550   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22553   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22556   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22559   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22562   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22565   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22568   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22571   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22574   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22577   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22580   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22583   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22586   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22589   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22592   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22595   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22598   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22601   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22604   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22607   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22610   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22613   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22616   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22619   22158 99 08:34 pts/0    00:00:01 /usr/sbin/memtester 5481845K 1
+root       22622   22158 99 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22625   22158 98 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22628   22158 98 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22631   22158 97 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22634   22158 97 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22637   22158 97 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22640   22158 96 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22643   22158 96 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22646   22158 95 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22649   22158 95 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22652   22158 94 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22655   22158 94 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22658   22158 93 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22661   22158 93 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22664   22158 92 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22667   22158 91 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22670   22158 91 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22673   22158 91 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22676   22158 90 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22679   22158 90 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22682   22158 89 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22685   22158 89 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22688   22158 88 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22691   22158 88 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22694   22158 87 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22697   22158 86 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22700   22158 86 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22703   22158 86 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22706   22158 85 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22709   22158 85 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22712   22158 84 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22715   22158 84 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22718   22158 84 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22721   22158 83 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22724   22158 83 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22727   22158 82 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22730   22158 82 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22733   22158 82 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22736   22158 81 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22739   22158 81 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22742   22158 80 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22745   22158 79 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22748   22158 79 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22751   22158 79 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22754   22158 78 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22757   22158 78 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22760   22158 77 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22763   22158 77 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22766   22158 76 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22769   22158 76 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22772   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22775   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22778   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22781   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22784   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22787   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22790   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22793   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22796   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22799   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22802   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22805   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22808   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22811   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22814   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22817   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22820   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22823   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22826   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22829   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22832   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22835   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22838   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22841   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22844   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22847   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22850   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22853   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22856   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22859   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22862   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22865   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22868   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22871   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22874   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22877   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22880   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22883   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22886   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22889   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22892   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22895   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22898   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22901   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22904   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22907   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22910   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22913   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22916   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22919   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22922   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22925   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22928   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22931   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22934   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22937   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22940   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22943   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22946   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22949   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22952   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22955   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22958   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22961   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22964   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22967   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22970   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22973   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22976   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22979   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22982   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22985   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22988   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22991   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22994   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       22997   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       23000   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       23003   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       23006   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       23009   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       23012   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       23015   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       23018   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       23021   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       23024   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       23027   22158  0 08:34 pts/0    00:00:00 /usr/sbin/memtester 5481845K 1
+root       23029   22158  0 08:34 pts/0    00:00:00 grep memtester
+Start Mesurement ...
+
+
+ELAPSE/TOTLDR = 0/900
+CPU0_DIMM_TEMP_A | 37 degrees C      | cr
+CPU0_DIMM_TEMP_B | 38 degrees C      | cr
+CPU0_DIMM_TEMP_C | 38 degrees C      | cr
+CPU0_DIMM_TEMP_D | 37 degrees C      | cr
+CPU0_DIMM_TEMP_E | 37 degrees C      | cr
+CPU0_DIMM_TEMP_F | 36 degrees C      | cr
+CPU0_DIMM_TEMP_G | 36 degrees C      | cr
+CPU0_DIMM_TEMP_H | 37 degrees C      | cr
+CPU0_DIMM_TEMP_I | 37 degrees C      | cr
+CPU0_DIMM_TEMP_J | 37 degrees C      | cr
+CPU0_DIMM_TEMP_K | 37 degrees C      | cr
+CPU0_DIMM_TEMP_L | 35 degrees C      | cr
+CPU1_DIMM_TEMP_D | 37 degrees C      | cr
+CPU1_DIMM_TEMP_F | 35 degrees C      | cr
+CPU1_DIMM_TEMP_L | 36 degrees C      | cr
+CPU1_DIMM_TEMP_A | 36 degrees C      | cr
+CPU1_DIMM_TEMP_H | 38 degrees C      | cr
+CPU1_DIMM_TEMP_E | 36 degrees C      | cr
+CPU1_DIMM_TEMP_B | 37 degrees C      | cr
+CPU1_DIMM_TEMP_K | 37 degrees C      | cr
+CPU1_DIMM_TEMP_C | 37 degrees C      | cr
+CPU1_DIMM_TEMP_I | 37 degrees C      | cr
+CPU1_DIMM_TEMP_J | 37 degrees C      | cr
+CPU1_DIMM_TEMP_G | 36 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 10/900
+CPU0_DIMM_TEMP_A | 41 degrees C      | cr
+CPU0_DIMM_TEMP_B | 42 degrees C      | cr
+CPU0_DIMM_TEMP_C | 42 degrees C      | cr
+CPU0_DIMM_TEMP_D | 41 degrees C      | cr
+CPU0_DIMM_TEMP_E | 42 degrees C      | cr
+CPU0_DIMM_TEMP_F | 40 degrees C      | cr
+CPU0_DIMM_TEMP_G | 40 degrees C      | cr
+CPU0_DIMM_TEMP_H | 42 degrees C      | cr
+CPU0_DIMM_TEMP_I | 42 degrees C      | cr
+CPU0_DIMM_TEMP_J | 41 degrees C      | cr
+CPU0_DIMM_TEMP_K | 41 degrees C      | cr
+CPU0_DIMM_TEMP_L | 39 degrees C      | cr
+CPU1_DIMM_TEMP_D | 41 degrees C      | cr
+CPU1_DIMM_TEMP_F | 39 degrees C      | cr
+CPU1_DIMM_TEMP_L | 40 degrees C      | cr
+CPU1_DIMM_TEMP_A | 40 degrees C      | cr
+CPU1_DIMM_TEMP_H | 42 degrees C      | cr
+CPU1_DIMM_TEMP_E | 41 degrees C      | cr
+CPU1_DIMM_TEMP_B | 42 degrees C      | cr
+CPU1_DIMM_TEMP_K | 41 degrees C      | cr
+CPU1_DIMM_TEMP_C | 41 degrees C      | cr
+CPU1_DIMM_TEMP_I | 41 degrees C      | cr
+CPU1_DIMM_TEMP_J | 41 degrees C      | cr
+CPU1_DIMM_TEMP_G | 40 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 20/900
+CPU0_DIMM_TEMP_A | 43 degrees C      | cr
+CPU0_DIMM_TEMP_B | 45 degrees C      | cr
+CPU0_DIMM_TEMP_C | 45 degrees C      | cr
+CPU0_DIMM_TEMP_D | 45 degrees C      | cr
+CPU0_DIMM_TEMP_E | 45 degrees C      | cr
+CPU0_DIMM_TEMP_F | 44 degrees C      | cr
+CPU0_DIMM_TEMP_G | 43 degrees C      | cr
+CPU0_DIMM_TEMP_H | 44 degrees C      | cr
+CPU0_DIMM_TEMP_I | 45 degrees C      | cr
+CPU0_DIMM_TEMP_J | 44 degrees C      | cr
+CPU0_DIMM_TEMP_K | 45 degrees C      | cr
+CPU0_DIMM_TEMP_L | 42 degrees C      | cr
+CPU1_DIMM_TEMP_D | 43 degrees C      | cr
+CPU1_DIMM_TEMP_F | 41 degrees C      | cr
+CPU1_DIMM_TEMP_L | 43 degrees C      | cr
+CPU1_DIMM_TEMP_A | 43 degrees C      | cr
+CPU1_DIMM_TEMP_H | 45 degrees C      | cr
+CPU1_DIMM_TEMP_E | 43 degrees C      | cr
+CPU1_DIMM_TEMP_B | 45 degrees C      | cr
+CPU1_DIMM_TEMP_K | 44 degrees C      | cr
+CPU1_DIMM_TEMP_C | 44 degrees C      | cr
+CPU1_DIMM_TEMP_I | 44 degrees C      | cr
+CPU1_DIMM_TEMP_J | 44 degrees C      | cr
+CPU1_DIMM_TEMP_G | 43 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 30/900
+CPU0_DIMM_TEMP_A | 46 degrees C      | cr
+CPU0_DIMM_TEMP_B | 48 degrees C      | cr
+CPU0_DIMM_TEMP_C | 48 degrees C      | cr
+CPU0_DIMM_TEMP_D | 48 degrees C      | cr
+CPU0_DIMM_TEMP_E | 48 degrees C      | cr
+CPU0_DIMM_TEMP_F | 47 degrees C      | cr
+CPU0_DIMM_TEMP_G | 46 degrees C      | cr
+CPU0_DIMM_TEMP_H | 47 degrees C      | cr
+CPU0_DIMM_TEMP_I | 48 degrees C      | cr
+CPU0_DIMM_TEMP_J | 48 degrees C      | cr
+CPU0_DIMM_TEMP_K | 48 degrees C      | cr
+CPU0_DIMM_TEMP_L | 45 degrees C      | cr
+CPU1_DIMM_TEMP_D | 47 degrees C      | cr
+CPU1_DIMM_TEMP_F | 45 degrees C      | cr
+CPU1_DIMM_TEMP_L | 46 degrees C      | cr
+CPU1_DIMM_TEMP_A | 46 degrees C      | cr
+CPU1_DIMM_TEMP_H | 49 degrees C      | cr
+CPU1_DIMM_TEMP_E | 47 degrees C      | cr
+CPU1_DIMM_TEMP_B | 48 degrees C      | cr
+CPU1_DIMM_TEMP_K | 48 degrees C      | cr
+CPU1_DIMM_TEMP_C | 47 degrees C      | cr
+CPU1_DIMM_TEMP_I | 48 degrees C      | cr
+CPU1_DIMM_TEMP_J | 48 degrees C      | cr
+CPU1_DIMM_TEMP_G | 47 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 40/900
+CPU0_DIMM_TEMP_A | 49 degrees C      | cr
+CPU0_DIMM_TEMP_B | 50 degrees C      | cr
+CPU0_DIMM_TEMP_C | 51 degrees C      | cr
+CPU0_DIMM_TEMP_D | 50 degrees C      | cr
+CPU0_DIMM_TEMP_E | 51 degrees C      | cr
+CPU0_DIMM_TEMP_F | 49 degrees C      | cr
+CPU0_DIMM_TEMP_G | 48 degrees C      | cr
+CPU0_DIMM_TEMP_H | 50 degrees C      | cr
+CPU0_DIMM_TEMP_I | 50 degrees C      | cr
+CPU0_DIMM_TEMP_J | 50 degrees C      | cr
+CPU0_DIMM_TEMP_K | 50 degrees C      | cr
+CPU0_DIMM_TEMP_L | 47 degrees C      | cr
+CPU1_DIMM_TEMP_D | 49 degrees C      | cr
+CPU1_DIMM_TEMP_F | 47 degrees C      | cr
+CPU1_DIMM_TEMP_L | 48 degrees C      | cr
+CPU1_DIMM_TEMP_A | 48 degrees C      | cr
+CPU1_DIMM_TEMP_H | 51 degrees C      | cr
+CPU1_DIMM_TEMP_E | 49 degrees C      | cr
+CPU1_DIMM_TEMP_B | 51 degrees C      | cr
+CPU1_DIMM_TEMP_K | 50 degrees C      | cr
+CPU1_DIMM_TEMP_C | 50 degrees C      | cr
+CPU1_DIMM_TEMP_I | 50 degrees C      | cr
+CPU1_DIMM_TEMP_J | 50 degrees C      | cr
+CPU1_DIMM_TEMP_G | 49 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 50/900
+CPU0_DIMM_TEMP_A | 50 degrees C      | cr
+CPU0_DIMM_TEMP_B | 52 degrees C      | cr
+CPU0_DIMM_TEMP_C | 53 degrees C      | cr
+CPU0_DIMM_TEMP_D | 52 degrees C      | cr
+CPU0_DIMM_TEMP_E | 53 degrees C      | cr
+CPU0_DIMM_TEMP_F | 51 degrees C      | cr
+CPU0_DIMM_TEMP_G | 50 degrees C      | cr
+CPU0_DIMM_TEMP_H | 52 degrees C      | cr
+CPU0_DIMM_TEMP_I | 52 degrees C      | cr
+CPU0_DIMM_TEMP_J | 52 degrees C      | cr
+CPU0_DIMM_TEMP_K | 52 degrees C      | cr
+CPU0_DIMM_TEMP_L | 49 degrees C      | cr
+CPU1_DIMM_TEMP_D | 51 degrees C      | cr
+CPU1_DIMM_TEMP_F | 49 degrees C      | cr
+CPU1_DIMM_TEMP_L | 50 degrees C      | cr
+CPU1_DIMM_TEMP_A | 50 degrees C      | cr
+CPU1_DIMM_TEMP_H | 53 degrees C      | cr
+CPU1_DIMM_TEMP_E | 51 degrees C      | cr
+CPU1_DIMM_TEMP_B | 53 degrees C      | cr
+CPU1_DIMM_TEMP_K | 52 degrees C      | cr
+CPU1_DIMM_TEMP_C | 52 degrees C      | cr
+CPU1_DIMM_TEMP_I | 52 degrees C      | cr
+CPU1_DIMM_TEMP_J | 52 degrees C      | cr
+CPU1_DIMM_TEMP_G | 51 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 60/900
+CPU0_DIMM_TEMP_A | 52 degrees C      | cr
+CPU0_DIMM_TEMP_B | 54 degrees C      | cr
+CPU0_DIMM_TEMP_C | 54 degrees C      | cr
+CPU0_DIMM_TEMP_D | 53 degrees C      | cr
+CPU0_DIMM_TEMP_E | 54 degrees C      | cr
+CPU0_DIMM_TEMP_F | 52 degrees C      | cr
+CPU0_DIMM_TEMP_G | 52 degrees C      | cr
+CPU0_DIMM_TEMP_H | 53 degrees C      | cr
+CPU0_DIMM_TEMP_I | 53 degrees C      | cr
+CPU0_DIMM_TEMP_J | 53 degrees C      | cr
+CPU0_DIMM_TEMP_K | 54 degrees C      | cr
+CPU0_DIMM_TEMP_L | 50 degrees C      | cr
+CPU1_DIMM_TEMP_D | 52 degrees C      | cr
+CPU1_DIMM_TEMP_F | 50 degrees C      | cr
+CPU1_DIMM_TEMP_L | 50 degrees C      | cr
+CPU1_DIMM_TEMP_A | 51 degrees C      | cr
+CPU1_DIMM_TEMP_H | 54 degrees C      | cr
+CPU1_DIMM_TEMP_E | 52 degrees C      | cr
+CPU1_DIMM_TEMP_B | 54 degrees C      | cr
+CPU1_DIMM_TEMP_K | 53 degrees C      | cr
+CPU1_DIMM_TEMP_C | 53 degrees C      | cr
+CPU1_DIMM_TEMP_I | 53 degrees C      | cr
+CPU1_DIMM_TEMP_J | 53 degrees C      | cr
+CPU1_DIMM_TEMP_G | 52 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 70/900
+CPU0_DIMM_TEMP_A | 52 degrees C      | cr
+CPU0_DIMM_TEMP_B | 54 degrees C      | cr
+CPU0_DIMM_TEMP_C | 54 degrees C      | cr
+CPU0_DIMM_TEMP_D | 54 degrees C      | cr
+CPU0_DIMM_TEMP_E | 54 degrees C      | cr
+CPU0_DIMM_TEMP_F | 52 degrees C      | cr
+CPU0_DIMM_TEMP_G | 52 degrees C      | cr
+CPU0_DIMM_TEMP_H | 54 degrees C      | cr
+CPU0_DIMM_TEMP_I | 53 degrees C      | cr
+CPU0_DIMM_TEMP_J | 53 degrees C      | cr
+CPU0_DIMM_TEMP_K | 53 degrees C      | cr
+CPU0_DIMM_TEMP_L | 49 degrees C      | cr
+CPU1_DIMM_TEMP_D | 52 degrees C      | cr
+CPU1_DIMM_TEMP_F | 49 degrees C      | cr
+CPU1_DIMM_TEMP_L | 50 degrees C      | cr
+CPU1_DIMM_TEMP_A | 50 degrees C      | cr
+CPU1_DIMM_TEMP_H | 54 degrees C      | cr
+CPU1_DIMM_TEMP_E | 52 degrees C      | cr
+CPU1_DIMM_TEMP_B | 53 degrees C      | cr
+CPU1_DIMM_TEMP_K | 53 degrees C      | cr
+CPU1_DIMM_TEMP_C | 53 degrees C      | cr
+CPU1_DIMM_TEMP_I | 53 degrees C      | cr
+CPU1_DIMM_TEMP_J | 53 degrees C      | cr
+CPU1_DIMM_TEMP_G | 51 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 80/900
+CPU0_DIMM_TEMP_A | 50 degrees C      | cr
+CPU0_DIMM_TEMP_B | 53 degrees C      | cr
+CPU0_DIMM_TEMP_C | 52 degrees C      | cr
+CPU0_DIMM_TEMP_D | 51 degrees C      | cr
+CPU0_DIMM_TEMP_E | 51 degrees C      | cr
+CPU0_DIMM_TEMP_F | 49 degrees C      | cr
+CPU0_DIMM_TEMP_G | 50 degrees C      | cr
+CPU0_DIMM_TEMP_H | 52 degrees C      | cr
+CPU0_DIMM_TEMP_I | 51 degrees C      | cr
+CPU0_DIMM_TEMP_J | 51 degrees C      | cr
+CPU0_DIMM_TEMP_K | 50 degrees C      | cr
+CPU0_DIMM_TEMP_L | 46 degrees C      | cr
+CPU1_DIMM_TEMP_D | 50 degrees C      | cr
+CPU1_DIMM_TEMP_F | 46 degrees C      | cr
+CPU1_DIMM_TEMP_L | 47 degrees C      | cr
+CPU1_DIMM_TEMP_A | 47 degrees C      | cr
+CPU1_DIMM_TEMP_H | 51 degrees C      | cr
+CPU1_DIMM_TEMP_E | 49 degrees C      | cr
+CPU1_DIMM_TEMP_B | 51 degrees C      | cr
+CPU1_DIMM_TEMP_K | 50 degrees C      | cr
+CPU1_DIMM_TEMP_C | 50 degrees C      | cr
+CPU1_DIMM_TEMP_I | 51 degrees C      | cr
+CPU1_DIMM_TEMP_J | 51 degrees C      | cr
+CPU1_DIMM_TEMP_G | 49 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 90/900
+CPU0_DIMM_TEMP_A | 48 degrees C      | cr
+CPU0_DIMM_TEMP_B | 51 degrees C      | cr
+CPU0_DIMM_TEMP_C | 49 degrees C      | cr
+CPU0_DIMM_TEMP_D | 48 degrees C      | cr
+CPU0_DIMM_TEMP_E | 48 degrees C      | cr
+CPU0_DIMM_TEMP_F | 46 degrees C      | cr
+CPU0_DIMM_TEMP_G | 48 degrees C      | cr
+CPU0_DIMM_TEMP_H | 50 degrees C      | cr
+CPU0_DIMM_TEMP_I | 48 degrees C      | cr
+CPU0_DIMM_TEMP_J | 48 degrees C      | cr
+CPU0_DIMM_TEMP_K | 48 degrees C      | cr
+CPU0_DIMM_TEMP_L | 44 degrees C      | cr
+CPU1_DIMM_TEMP_D | 47 degrees C      | cr
+CPU1_DIMM_TEMP_F | 44 degrees C      | cr
+CPU1_DIMM_TEMP_L | 45 degrees C      | cr
+CPU1_DIMM_TEMP_A | 45 degrees C      | cr
+CPU1_DIMM_TEMP_H | 49 degrees C      | cr
+CPU1_DIMM_TEMP_E | 47 degrees C      | cr
+CPU1_DIMM_TEMP_B | 49 degrees C      | cr
+CPU1_DIMM_TEMP_K | 48 degrees C      | cr
+CPU1_DIMM_TEMP_C | 48 degrees C      | cr
+CPU1_DIMM_TEMP_I | 48 degrees C      | cr
+CPU1_DIMM_TEMP_J | 48 degrees C      | cr
+CPU1_DIMM_TEMP_G | 47 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 100/900
+CPU0_DIMM_TEMP_A | 46 degrees C      | cr
+CPU0_DIMM_TEMP_B | 49 degrees C      | cr
+CPU0_DIMM_TEMP_C | 47 degrees C      | cr
+CPU0_DIMM_TEMP_D | 47 degrees C      | cr
+CPU0_DIMM_TEMP_E | 46 degrees C      | cr
+CPU0_DIMM_TEMP_F | 44 degrees C      | cr
+CPU0_DIMM_TEMP_G | 46 degrees C      | cr
+CPU0_DIMM_TEMP_H | 48 degrees C      | cr
+CPU0_DIMM_TEMP_I | 47 degrees C      | cr
+CPU0_DIMM_TEMP_J | 46 degrees C      | cr
+CPU0_DIMM_TEMP_K | 46 degrees C      | cr
+CPU0_DIMM_TEMP_L | 42 degrees C      | cr
+CPU1_DIMM_TEMP_D | 45 degrees C      | cr
+CPU1_DIMM_TEMP_F | 42 degrees C      | cr
+CPU1_DIMM_TEMP_L | 43 degrees C      | cr
+CPU1_DIMM_TEMP_A | 43 degrees C      | cr
+CPU1_DIMM_TEMP_H | 47 degrees C      | cr
+CPU1_DIMM_TEMP_E | 45 degrees C      | cr
+CPU1_DIMM_TEMP_B | 47 degrees C      | cr
+CPU1_DIMM_TEMP_K | 46 degrees C      | cr
+CPU1_DIMM_TEMP_C | 46 degrees C      | cr
+CPU1_DIMM_TEMP_I | 46 degrees C      | cr
+CPU1_DIMM_TEMP_J | 46 degrees C      | cr
+CPU1_DIMM_TEMP_G | 45 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 110/900
+CPU0_DIMM_TEMP_A | 46 degrees C      | cr
+CPU0_DIMM_TEMP_B | 48 degrees C      | cr
+CPU0_DIMM_TEMP_C | 48 degrees C      | cr
+CPU0_DIMM_TEMP_D | 47 degrees C      | cr
+CPU0_DIMM_TEMP_E | 46 degrees C      | cr
+CPU0_DIMM_TEMP_F | 44 degrees C      | cr
+CPU0_DIMM_TEMP_G | 46 degrees C      | cr
+CPU0_DIMM_TEMP_H | 48 degrees C      | cr
+CPU0_DIMM_TEMP_I | 47 degrees C      | cr
+CPU0_DIMM_TEMP_J | 47 degrees C      | cr
+CPU0_DIMM_TEMP_K | 45 degrees C      | cr
+CPU0_DIMM_TEMP_L | 42 degrees C      | cr
+CPU1_DIMM_TEMP_D | 46 degrees C      | cr
+CPU1_DIMM_TEMP_F | 42 degrees C      | cr
+CPU1_DIMM_TEMP_L | 44 degrees C      | cr
+CPU1_DIMM_TEMP_A | 44 degrees C      | cr
+CPU1_DIMM_TEMP_H | 48 degrees C      | cr
+CPU1_DIMM_TEMP_E | 45 degrees C      | cr
+CPU1_DIMM_TEMP_B | 47 degrees C      | cr
+CPU1_DIMM_TEMP_K | 47 degrees C      | cr
+CPU1_DIMM_TEMP_C | 47 degrees C      | cr
+CPU1_DIMM_TEMP_I | 47 degrees C      | cr
+CPU1_DIMM_TEMP_J | 47 degrees C      | cr
+CPU1_DIMM_TEMP_G | 45 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 120/900
+CPU0_DIMM_TEMP_A | 47 degrees C      | cr
+CPU0_DIMM_TEMP_B | 49 degrees C      | cr
+CPU0_DIMM_TEMP_C | 50 degrees C      | cr
+CPU0_DIMM_TEMP_D | 49 degrees C      | cr
+CPU0_DIMM_TEMP_E | 48 degrees C      | cr
+CPU0_DIMM_TEMP_F | 46 degrees C      | cr
+CPU0_DIMM_TEMP_G | 47 degrees C      | cr
+CPU0_DIMM_TEMP_H | 49 degrees C      | cr
+CPU0_DIMM_TEMP_I | 49 degrees C      | cr
+CPU0_DIMM_TEMP_J | 49 degrees C      | cr
+CPU0_DIMM_TEMP_K | 47 degrees C      | cr
+CPU0_DIMM_TEMP_L | 44 degrees C      | cr
+CPU1_DIMM_TEMP_D | 49 degrees C      | cr
+CPU1_DIMM_TEMP_F | 46 degrees C      | cr
+CPU1_DIMM_TEMP_L | 47 degrees C      | cr
+CPU1_DIMM_TEMP_A | 47 degrees C      | cr
+CPU1_DIMM_TEMP_H | 51 degrees C      | cr
+CPU1_DIMM_TEMP_E | 48 degrees C      | cr
+CPU1_DIMM_TEMP_B | 50 degrees C      | cr
+CPU1_DIMM_TEMP_K | 50 degrees C      | cr
+CPU1_DIMM_TEMP_C | 50 degrees C      | cr
+CPU1_DIMM_TEMP_I | 50 degrees C      | cr
+CPU1_DIMM_TEMP_J | 51 degrees C      | cr
+CPU1_DIMM_TEMP_G | 48 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 130/900
+CPU0_DIMM_TEMP_A | 50 degrees C      | cr
+CPU0_DIMM_TEMP_B | 53 degrees C      | cr
+CPU0_DIMM_TEMP_C | 53 degrees C      | cr
+CPU0_DIMM_TEMP_D | 52 degrees C      | cr
+CPU0_DIMM_TEMP_E | 52 degrees C      | cr
+CPU0_DIMM_TEMP_F | 50 degrees C      | cr
+CPU0_DIMM_TEMP_G | 50 degrees C      | cr
+CPU0_DIMM_TEMP_H | 52 degrees C      | cr
+CPU0_DIMM_TEMP_I | 52 degrees C      | cr
+CPU0_DIMM_TEMP_J | 52 degrees C      | cr
+CPU0_DIMM_TEMP_K | 51 degrees C      | cr
+CPU0_DIMM_TEMP_L | 48 degrees C      | cr
+CPU1_DIMM_TEMP_D | 52 degrees C      | cr
+CPU1_DIMM_TEMP_F | 48 degrees C      | cr
+CPU1_DIMM_TEMP_L | 50 degrees C      | cr
+CPU1_DIMM_TEMP_A | 50 degrees C      | cr
+CPU1_DIMM_TEMP_H | 54 degrees C      | cr
+CPU1_DIMM_TEMP_E | 51 degrees C      | cr
+CPU1_DIMM_TEMP_B | 53 degrees C      | cr
+CPU1_DIMM_TEMP_K | 53 degrees C      | cr
+CPU1_DIMM_TEMP_C | 53 degrees C      | cr
+CPU1_DIMM_TEMP_I | 53 degrees C      | cr
+CPU1_DIMM_TEMP_J | 53 degrees C      | cr
+CPU1_DIMM_TEMP_G | 51 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 140/900
+CPU0_DIMM_TEMP_A | 53 degrees C      | cr
+CPU0_DIMM_TEMP_B | 55 degrees C      | cr
+CPU0_DIMM_TEMP_C | 56 degrees C      | cr
+CPU0_DIMM_TEMP_D | 55 degrees C      | cr
+CPU0_DIMM_TEMP_E | 55 degrees C      | cr
+CPU0_DIMM_TEMP_F | 53 degrees C      | cr
+CPU0_DIMM_TEMP_G | 52 degrees C      | cr
+CPU0_DIMM_TEMP_H | 55 degrees C      | cr
+CPU0_DIMM_TEMP_I | 55 degrees C      | cr
+CPU0_DIMM_TEMP_J | 55 degrees C      | cr
+CPU0_DIMM_TEMP_K | 54 degrees C      | cr
+CPU0_DIMM_TEMP_L | 50 degrees C      | cr
+CPU1_DIMM_TEMP_D | 54 degrees C      | cr
+CPU1_DIMM_TEMP_F | 51 degrees C      | cr
+CPU1_DIMM_TEMP_L | 52 degrees C      | cr
+CPU1_DIMM_TEMP_A | 52 degrees C      | cr
+CPU1_DIMM_TEMP_H | 56 degrees C      | cr
+CPU1_DIMM_TEMP_E | 54 degrees C      | cr
+CPU1_DIMM_TEMP_B | 56 degrees C      | cr
+CPU1_DIMM_TEMP_K | 55 degrees C      | cr
+CPU1_DIMM_TEMP_C | 55 degrees C      | cr
+CPU1_DIMM_TEMP_I | 56 degrees C      | cr
+CPU1_DIMM_TEMP_J | 56 degrees C      | cr
+CPU1_DIMM_TEMP_G | 54 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 150/900
+CPU0_DIMM_TEMP_A | 55 degrees C      | cr
+CPU0_DIMM_TEMP_B | 58 degrees C      | cr
+CPU0_DIMM_TEMP_C | 58 degrees C      | cr
+CPU0_DIMM_TEMP_D | 57 degrees C      | cr
+CPU0_DIMM_TEMP_E | 57 degrees C      | cr
+CPU0_DIMM_TEMP_F | 55 degrees C      | cr
+CPU0_DIMM_TEMP_G | 55 degrees C      | cr
+CPU0_DIMM_TEMP_H | 57 degrees C      | cr
+CPU0_DIMM_TEMP_I | 57 degrees C      | cr
+CPU0_DIMM_TEMP_J | 57 degrees C      | cr
+CPU0_DIMM_TEMP_K | 57 degrees C      | cr
+CPU0_DIMM_TEMP_L | 52 degrees C      | cr
+CPU1_DIMM_TEMP_D | 56 degrees C      | cr
+CPU1_DIMM_TEMP_F | 53 degrees C      | cr
+CPU1_DIMM_TEMP_L | 54 degrees C      | cr
+CPU1_DIMM_TEMP_A | 54 degrees C      | cr
+CPU1_DIMM_TEMP_H | 59 degrees C      | cr
+CPU1_DIMM_TEMP_E | 56 degrees C      | cr
+CPU1_DIMM_TEMP_B | 58 degrees C      | cr
+CPU1_DIMM_TEMP_K | 57 degrees C      | cr
+CPU1_DIMM_TEMP_C | 57 degrees C      | cr
+CPU1_DIMM_TEMP_I | 58 degrees C      | cr
+CPU1_DIMM_TEMP_J | 58 degrees C      | cr
+CPU1_DIMM_TEMP_G | 56 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 160/900
+CPU0_DIMM_TEMP_A | 57 degrees C      | cr
+CPU0_DIMM_TEMP_B | 60 degrees C      | cr
+CPU0_DIMM_TEMP_C | 60 degrees C      | cr
+CPU0_DIMM_TEMP_D | 59 degrees C      | cr
+CPU0_DIMM_TEMP_E | 59 degrees C      | cr
+CPU0_DIMM_TEMP_F | 56 degrees C      | cr
+CPU0_DIMM_TEMP_G | 56 degrees C      | cr
+CPU0_DIMM_TEMP_H | 59 degrees C      | cr
+CPU0_DIMM_TEMP_I | 59 degrees C      | cr
+CPU0_DIMM_TEMP_J | 59 degrees C      | cr
+CPU0_DIMM_TEMP_K | 58 degrees C      | cr
+CPU0_DIMM_TEMP_L | 54 degrees C      | cr
+CPU1_DIMM_TEMP_D | 58 degrees C      | cr
+CPU1_DIMM_TEMP_F | 54 degrees C      | cr
+CPU1_DIMM_TEMP_L | 55 degrees C      | cr
+CPU1_DIMM_TEMP_A | 56 degrees C      | cr
+CPU1_DIMM_TEMP_H | 60 degrees C      | cr
+CPU1_DIMM_TEMP_E | 57 degrees C      | cr
+CPU1_DIMM_TEMP_B | 60 degrees C      | cr
+CPU1_DIMM_TEMP_K | 59 degrees C      | cr
+CPU1_DIMM_TEMP_C | 59 degrees C      | cr
+CPU1_DIMM_TEMP_I | 59 degrees C      | cr
+CPU1_DIMM_TEMP_J | 59 degrees C      | cr
+CPU1_DIMM_TEMP_G | 57 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 170/900
+CPU0_DIMM_TEMP_A | 58 degrees C      | cr
+CPU0_DIMM_TEMP_B | 61 degrees C      | cr
+CPU0_DIMM_TEMP_C | 61 degrees C      | cr
+CPU0_DIMM_TEMP_D | 60 degrees C      | cr
+CPU0_DIMM_TEMP_E | 61 degrees C      | cr
+CPU0_DIMM_TEMP_F | 58 degrees C      | cr
+CPU0_DIMM_TEMP_G | 58 degrees C      | cr
+CPU0_DIMM_TEMP_H | 60 degrees C      | cr
+CPU0_DIMM_TEMP_I | 60 degrees C      | cr
+CPU0_DIMM_TEMP_J | 60 degrees C      | cr
+CPU0_DIMM_TEMP_K | 60 degrees C      | cr
+CPU0_DIMM_TEMP_L | 55 degrees C      | cr
+CPU1_DIMM_TEMP_D | 59 degrees C      | cr
+CPU1_DIMM_TEMP_F | 55 degrees C      | cr
+CPU1_DIMM_TEMP_L | 57 degrees C      | cr
+CPU1_DIMM_TEMP_A | 57 degrees C      | cr
+CPU1_DIMM_TEMP_H | 62 degrees C      | cr
+CPU1_DIMM_TEMP_E | 59 degrees C      | cr
+CPU1_DIMM_TEMP_B | 61 degrees C      | cr
+CPU1_DIMM_TEMP_K | 61 degrees C      | cr
+CPU1_DIMM_TEMP_C | 60 degrees C      | cr
+CPU1_DIMM_TEMP_I | 61 degrees C      | cr
+CPU1_DIMM_TEMP_J | 61 degrees C      | cr
+CPU1_DIMM_TEMP_G | 59 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 180/900
+CPU0_DIMM_TEMP_A | 59 degrees C      | cr
+CPU0_DIMM_TEMP_B | 62 degrees C      | cr
+CPU0_DIMM_TEMP_C | 62 degrees C      | cr
+CPU0_DIMM_TEMP_D | 61 degrees C      | cr
+CPU0_DIMM_TEMP_E | 62 degrees C      | cr
+CPU0_DIMM_TEMP_F | 59 degrees C      | cr
+CPU0_DIMM_TEMP_G | 59 degrees C      | cr
+CPU0_DIMM_TEMP_H | 62 degrees C      | cr
+CPU0_DIMM_TEMP_I | 61 degrees C      | cr
+CPU0_DIMM_TEMP_J | 61 degrees C      | cr
+CPU0_DIMM_TEMP_K | 61 degrees C      | cr
+CPU0_DIMM_TEMP_L | 56 degrees C      | cr
+CPU1_DIMM_TEMP_D | 60 degrees C      | cr
+CPU1_DIMM_TEMP_F | 56 degrees C      | cr
+CPU1_DIMM_TEMP_L | 57 degrees C      | cr
+CPU1_DIMM_TEMP_A | 58 degrees C      | cr
+CPU1_DIMM_TEMP_H | 63 degrees C      | cr
+CPU1_DIMM_TEMP_E | 60 degrees C      | cr
+CPU1_DIMM_TEMP_B | 62 degrees C      | cr
+CPU1_DIMM_TEMP_K | 62 degrees C      | cr
+CPU1_DIMM_TEMP_C | 61 degrees C      | cr
+CPU1_DIMM_TEMP_I | 62 degrees C      | cr
+CPU1_DIMM_TEMP_J | 62 degrees C      | cr
+CPU1_DIMM_TEMP_G | 60 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 190/900
+CPU0_DIMM_TEMP_A | 60 degrees C      | cr
+CPU0_DIMM_TEMP_B | 63 degrees C      | cr
+CPU0_DIMM_TEMP_C | 63 degrees C      | cr
+CPU0_DIMM_TEMP_D | 62 degrees C      | cr
+CPU0_DIMM_TEMP_E | 63 degrees C      | cr
+CPU0_DIMM_TEMP_F | 60 degrees C      | cr
+CPU0_DIMM_TEMP_G | 60 degrees C      | cr
+CPU0_DIMM_TEMP_H | 63 degrees C      | cr
+CPU0_DIMM_TEMP_I | 62 degrees C      | cr
+CPU0_DIMM_TEMP_J | 62 degrees C      | cr
+CPU0_DIMM_TEMP_K | 62 degrees C      | cr
+CPU0_DIMM_TEMP_L | 57 degrees C      | cr
+CPU1_DIMM_TEMP_D | 61 degrees C      | cr
+CPU1_DIMM_TEMP_F | 57 degrees C      | cr
+CPU1_DIMM_TEMP_L | 58 degrees C      | cr
+CPU1_DIMM_TEMP_A | 59 degrees C      | cr
+CPU1_DIMM_TEMP_H | 64 degrees C      | cr
+CPU1_DIMM_TEMP_E | 61 degrees C      | cr
+CPU1_DIMM_TEMP_B | 63 degrees C      | cr
+CPU1_DIMM_TEMP_K | 63 degrees C      | cr
+CPU1_DIMM_TEMP_C | 62 degrees C      | cr
+CPU1_DIMM_TEMP_I | 63 degrees C      | cr
+CPU1_DIMM_TEMP_J | 63 degrees C      | cr
+CPU1_DIMM_TEMP_G | 61 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 200/900
+CPU0_DIMM_TEMP_A | 61 degrees C      | cr
+CPU0_DIMM_TEMP_B | 64 degrees C      | cr
+CPU0_DIMM_TEMP_C | 64 degrees C      | cr
+CPU0_DIMM_TEMP_D | 63 degrees C      | cr
+CPU0_DIMM_TEMP_E | 64 degrees C      | cr
+CPU0_DIMM_TEMP_F | 61 degrees C      | cr
+CPU0_DIMM_TEMP_G | 61 degrees C      | cr
+CPU0_DIMM_TEMP_H | 64 degrees C      | cr
+CPU0_DIMM_TEMP_I | 63 degrees C      | cr
+CPU0_DIMM_TEMP_J | 63 degrees C      | cr
+CPU0_DIMM_TEMP_K | 63 degrees C      | cr
+CPU0_DIMM_TEMP_L | 58 degrees C      | cr
+CPU1_DIMM_TEMP_D | 62 degrees C      | cr
+CPU1_DIMM_TEMP_F | 57 degrees C      | cr
+CPU1_DIMM_TEMP_L | 59 degrees C      | cr
+CPU1_DIMM_TEMP_A | 59 degrees C      | cr
+CPU1_DIMM_TEMP_H | 65 degrees C      | cr
+CPU1_DIMM_TEMP_E | 62 degrees C      | cr
+CPU1_DIMM_TEMP_B | 64 degrees C      | cr
+CPU1_DIMM_TEMP_K | 63 degrees C      | cr
+CPU1_DIMM_TEMP_C | 63 degrees C      | cr
+CPU1_DIMM_TEMP_I | 63 degrees C      | cr
+CPU1_DIMM_TEMP_J | 64 degrees C      | cr
+CPU1_DIMM_TEMP_G | 61 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 210/900
+CPU0_DIMM_TEMP_A | 61 degrees C      | cr
+CPU0_DIMM_TEMP_B | 65 degrees C      | cr
+CPU0_DIMM_TEMP_C | 65 degrees C      | cr
+CPU0_DIMM_TEMP_D | 64 degrees C      | cr
+CPU0_DIMM_TEMP_E | 64 degrees C      | cr
+CPU0_DIMM_TEMP_F | 61 degrees C      | cr
+CPU0_DIMM_TEMP_G | 61 degrees C      | cr
+CPU0_DIMM_TEMP_H | 64 degrees C      | cr
+CPU0_DIMM_TEMP_I | 64 degrees C      | cr
+CPU0_DIMM_TEMP_J | 64 degrees C      | cr
+CPU0_DIMM_TEMP_K | 64 degrees C      | cr
+CPU0_DIMM_TEMP_L | 58 degrees C      | cr
+CPU1_DIMM_TEMP_D | 62 degrees C      | cr
+CPU1_DIMM_TEMP_F | 58 degrees C      | cr
+CPU1_DIMM_TEMP_L | 59 degrees C      | cr
+CPU1_DIMM_TEMP_A | 60 degrees C      | cr
+CPU1_DIMM_TEMP_H | 65 degrees C      | cr
+CPU1_DIMM_TEMP_E | 62 degrees C      | cr
+CPU1_DIMM_TEMP_B | 65 degrees C      | cr
+CPU1_DIMM_TEMP_K | 64 degrees C      | cr
+CPU1_DIMM_TEMP_C | 64 degrees C      | cr
+CPU1_DIMM_TEMP_I | 64 degrees C      | cr
+CPU1_DIMM_TEMP_J | 64 degrees C      | cr
+CPU1_DIMM_TEMP_G | 62 degrees C      | cr
+
+
+ELAPSE/TOTLDR = 220/900
+CPU0_DIMM_TEMP_A | 62 degrees C      | cr
+CPU0_DIMM_TEMP_B | 66 degrees C      | cr
+CPU0_DIMM_TEMP_C | 65 degrees C      | cr
+CPU0_DIMM_TEMP_D | 64 degrees C      | cr
+CPU0_DIMM_TEMP_E | 65 degrees C      | cr
+CPU0_DIMM_TEMP_F | 62 degrees C      | cr
+CPU0_DIMM_TEMP_G | 62 degrees C      | cr
+CPU0_DIMM_TEMP_H | 65 degrees C      | cr
+CPU0_DIMM_TEMP_I | 64 degrees C      | cr
+CPU0_DIMM_TEMP_J | 64 degrees C      | cr
+CPU0_DIMM_TEMP_K | 64 degrees C      | cr
+CPU0_DIMM_TEMP_L | 59 degrees C      | cr
+CPU1_DIMM_TEMP_D | 63 degrees C      | cr
+CPU1_DIMM_TEMP_F | 58 degrees C      | cr
+CPU1_DIMM_TEMP_L | 60 degrees C      | cr
+CPU1_DIMM_TEMP_A | 60 degrees C      | cr
+CPU1_DIMM_TEMP_H | 66 degrees C      | cr
+CPU1_DIMM_TEMP_E | 63 degrees C      | cr
+CPU1_DIMM_TEMP_B | 65 degrees C      | cr
+CPU1_DIMM_TEMP_K | 64 degrees C      | cr
+CPU1_DIMM_TEMP_C | 64 degrees C      | cr
+CPU1_DIMM_TEMP_I | 65 degrees C      | cr
+CPU1_DIMM_TEMP_J | 65 degrees C      | cr
+CPU1_DIMM_TEMP_G | 62 degrees C      | cr
+root@neosem:~/test# ### DIMMTEMP_END ###
+root@neosem:~/test# ### CPUTEMP_START ###
+root@neosem:~/test# cat /root/ptat/log/*mon*
+    Index,   S0-CPU_CFreq,   S0-CPU_UFreq,    S0-CPU_PState,     S0-CPU_Util,    S0-CPU_IPC,       S0-CPU_C0,       S0-CPU_C1,       S0-CPU_C6,      S0-CPU_PC2,      S0-CPU_PC6,    S0-CPU_Temp,   S0-CPU_DTS,    S0-CPU_Power,    S0-CPU_Volt,   S0-CPU_UVolt,   S0-CPU_TStat,   S0-CPU_TLog,   S0-CPU_#TL,   S0-CPU_TMargin,   S1-CPU_CFreq,   S1-CPU_UFreq,    S1-CPU_PState,     S1-CPU_Util,    S1-CPU_IPC,       S1-CPU_C0,       S1-CPU_C1,       S1-CPU_C6,      S1-CPU_PC2,      S1-CPU_PC6,    S1-CPU_Temp,   S1-CPU_DTS,    S1-CPU_Power,    S1-CPU_Volt,   S1-CPU_UVolt,   S1-CPU_TStat,   S1-CPU_TLog,   S1-CPU_#TL,   S1-CPU_TMargin,    S0-MEM_Temp,    S0-MEM_Power,   S0-MEM_TLog,    S1-MEM_Temp,    S1-MEM_Power,   S1-MEM_TLog,
+        0,           1831,           1500,                7,          100.00,          4.59,          100.00,            0.00,            0.00,            0.00,            0.00,             58,           48,          359.97,          0.696,          0.693,            0x0,           0x0,            0,           40.031,             40.031,           1916,           1500,                6,           98.38,          4.26,          100.00,            0.00,            0.00,            0.00,            0.00,             59,           47,          359.98,          0.711,          0.709,            0x0,           0x0,            0,           38.984,             38.984,             52,           16.79,           0x0,             52,           18.49,           0x0,
+        1,           1799,           1467,                8,          100.00,          4.17,          100.00,            0.00,            0.00,            0.00,            0.00,             59,           47,          359.98,          0.696,          0.688,            0x0,           0x0,            0,           39.719,             39.719,           1917,           1500,                6,          100.00,          3.56,          100.00,            0.00,            0.00,            0.00,            0.00,             59,           47,          359.95,          0.711,          0.708,            0x0,           0x0,            0,           39.000,             39.000,             52,           17.15,           0x0,             52,           18.49,           0x0,
+        2,           1844,           1533,                6,          100.00,          3.40,          100.00,            0.00,            0.00,            0.00,            0.00,             60,           46,          359.96,          0.718,          0.699,            0x0,           0x0,            0,           39.016,             39.016,           1997,           1667,                3,          100.00,          2.73,          100.00,            0.00,            0.00,            0.00,            0.00,             60,           46,          359.96,          0.731,          0.738,            0x0,           0x0,            0,           37.922,             37.922,             52,           16.79,           0x0,             52,           16.90,           0x0,
+        3,           2011,           1700,                3,          100.00,          2.45,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.94,          0.741,          0.726,            0x0,           0x0,            0,           38.047,             38.047,           2138,           1700,                2,          100.00,          2.15,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.97,          0.751,          0.744,            0x0,           0x0,            0,           37.625,             37.625,             51,           14.63,           0x0,             51,           14.36,           0x0,
+        4,           2209,           1600,                4,          100.00,          1.89,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.94,          0.728,          0.709,            0x0,           0x0,            0,           37.641,             37.641,           2325,           1700,                2,          100.00,          1.72,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          360.00,          0.741,          0.743,            0x0,           0x0,            0,           37.000,             37.000,             50,           10.59,           0x0,             49,           10.67,           0x0,
+        5,           2327,           1700,                3,          100.00,          1.63,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.96,          0.738,          0.726,            0x0,           0x0,            0,           37.484,             37.484,           2448,           1700,                2,          100.00,          1.46,           99.99,            0.00,            0.01,            0.00,            0.00,             62,           44,          359.91,          0.751,          0.743,            0x0,           0x0,            0,           36.172,             36.172,             49,            8.87,           0x0,             48,            9.50,           0x0,
+        6,           2355,           1800,                1,          100.00,          1.53,           99.99,            0.00,            0.01,            0.00,            0.00,             61,           45,          360.01,          0.761,          0.742,            0x0,           0x0,            0,           37.047,             37.047,           2456,           1800,                0,          100.00,          1.47,          100.00,            0.00,            0.00,            0.00,            0.00,             63,           43,          359.96,          0.768,          0.761,            0x0,           0x0,            0,           35.328,             35.328,             48,            8.19,           0x0,             47,            9.02,           0x0,
+        7,           2411,           1800,                0,          100.00,          1.41,           99.99,            0.00,            0.01,            0.00,            0.00,             62,           44,          359.92,          0.761,          0.742,            0x0,           0x0,            0,           36.672,             36.672,           2500,           1600,                0,          100.00,          1.41,           99.99,            0.00,            0.01,            0.00,            0.00,             63,           43,          359.97,          0.773,          0.725,            0x0,           0x0,            0,           35.062,             35.062,             47,            7.86,           0x0,             46,            8.18,           0x0,
+        8,           2405,           1800,                0,          100.00,          1.42,           99.99,            0.00,            0.01,            0.00,            0.00,             62,           44,          360.03,          0.761,          0.742,            0x0,           0x0,            0,           36.312,             36.312,           2575,           1900,                0,          100.00,          1.28,           99.99,            0.00,            0.01,            0.00,            0.00,             63,           43,          359.97,          0.773,          0.778,            0x0,           0x0,            0,           35.062,             35.062,             46,            8.16,           0x0,             45,            7.91,           0x0,
+        9,           2398,           1700,                2,          100.00,          1.43,           99.99,            0.00,            0.01,            0.00,            0.00,             62,           44,          359.97,          0.761,          0.725,            0x0,           0x0,            0,           36.547,             36.547,           2552,           1800,                0,          100.00,          1.31,           99.99,            0.00,            0.01,            0.00,            0.00,             63,           43,          360.03,          0.768,          0.760,            0x0,           0x0,            0,           35.250,             35.250,             46,            8.29,           0x0,             44,            8.26,           0x0,
+       10,           2308,           1700,                2,          100.00,          1.43,           99.99,            0.00,            0.01,            0.00,            0.00,             62,           44,          359.95,          0.751,          0.725,            0x0,           0x0,            0,           36.484,             36.484,           2261,           1633,                4,          100.00,          1.57,           99.99,            0.00,            0.01,            0.00,            0.00,             62,           44,          359.94,          0.728,          0.730,            0x0,           0x0,            0,           36.312,             36.312,             45,           10.30,           0x0,             45,           13.99,           0x0,
+       11,           2160,           1600,                4,          100.00,          1.55,           99.99,            0.00,            0.01,            0.00,            0.00,             61,           45,          360.00,          0.728,          0.708,            0x0,           0x0,            0,           37.094,             37.094,           2092,           1600,                5,          100.00,          1.78,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          360.01,          0.728,          0.724,            0x0,           0x0,            0,           36.562,             36.562,             46,           13.85,           0x0,             46,           16.91,           0x0,
+       12,           1988,           1500,                6,          100.00,          1.79,           99.99,            0.00,            0.01,            0.00,            0.00,             61,           45,          359.99,          0.716,          0.691,            0x0,           0x0,            0,           37.219,             37.219,           1989,           1600,                5,          100.00,          1.97,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.95,          0.718,          0.724,            0x0,           0x0,            0,           36.438,             36.438,             46,           16.33,           0x0,             47,           17.71,           0x0,
+       13,           1943,           1600,                5,          100.00,          1.89,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.97,          0.706,          0.707,            0x0,           0x0,            0,           37.156,             37.156,           2005,           1600,                4,          100.00,          1.86,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.97,          0.728,          0.724,            0x0,           0x0,            0,           36.188,             36.188,             47,           16.53,           0x0,             48,           17.80,           0x0,
+       14,           1934,           1500,                6,          100.00,          1.85,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.91,          0.716,          0.691,            0x0,           0x0,            0,           36.938,             36.938,           2079,           1600,                4,          100.00,          1.60,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.96,          0.728,          0.724,            0x0,           0x0,            0,           37.062,             37.062,             49,           17.02,           0x0,             50,           18.22,           0x0,
+       15,           1965,           1567,                5,          100.00,          1.63,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          360.01,          0.716,          0.702,            0x0,           0x0,            0,           36.797,             36.797,           2131,           1600,                4,          100.00,          1.39,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.99,          0.728,          0.724,            0x0,           0x0,            0,           36.922,             36.922,             50,           17.12,           0x0,             51,           18.27,           0x0,
+       16,           1992,           1600,                4,          100.00,          1.49,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.93,          0.728,          0.707,            0x0,           0x0,            0,           36.953,             36.953,           2141,           1600,                4,          100.00,          1.36,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.97,          0.738,          0.724,            0x0,           0x0,            0,           36.734,             36.734,             52,           17.24,           0x0,             52,           18.39,           0x0,
+       17,           2008,           1600,                5,          100.00,          1.42,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.98,          0.728,          0.707,            0x0,           0x0,            0,           36.938,             36.938,           2142,           1667,                3,           98.85,          1.35,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.97,          0.738,          0.737,            0x0,           0x0,            0,           36.484,             36.484,             53,           17.31,           0x0,             53,           18.60,           0x0,
+       18,           2000,           1500,                6,          100.00,          1.41,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.98,          0.716,          0.690,            0x0,           0x0,            0,           36.781,             36.781,           2149,           1700,                3,          100.00,          1.27,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.93,          0.728,          0.742,            0x0,           0x0,            0,           36.766,             36.766,             54,           17.42,           0x0,             54,           18.90,           0x0,
+       19,           1965,           1500,                6,          100.00,          1.34,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.95,          0.706,          0.690,            0x0,           0x0,            0,           36.812,             36.812,           2088,           1600,                5,           98.95,          1.31,          100.00,            0.00,            0.00,            0.00,            0.00,             60,           46,          360.02,          0.718,          0.724,            0x0,           0x0,            0,           37.109,             37.109,             55,           17.50,           0x0,             55,           19.02,           0x0,
+       20,           1991,           1533,                6,          100.00,          1.29,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          360.01,          0.716,          0.696,            0x0,           0x0,            0,           36.797,             36.797,           2118,           1600,                4,          100.00,          1.28,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.94,          0.728,          0.724,            0x0,           0x0,            0,           36.969,             36.969,             56,           17.69,           0x0,             56,           19.39,           0x0,
+       21,           1931,           1600,                5,          100.00,          1.37,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.95,          0.716,          0.707,            0x0,           0x0,            0,           36.641,             36.641,           2025,           1600,                4,          100.00,          1.37,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.95,          0.718,          0.724,            0x0,           0x0,            0,           37.062,             37.062,             57,           18.14,           0x0,             57,           19.59,           0x0,
+       22,           1969,           1500,                6,          100.00,          1.40,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          360.00,          0.716,          0.690,            0x0,           0x0,            0,           36.734,             36.734,           2094,           1600,                5,          100.00,          1.42,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.99,          0.718,          0.724,            0x0,           0x0,            0,           36.984,             36.984,             57,           18.64,           0x0,             58,           20.07,           0x0,
+       23,           1931,           1600,                5,          100.00,          1.56,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.95,          0.716,          0.707,            0x0,           0x0,            0,           36.547,             36.547,           2009,           1600,                4,          100.00,          1.62,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.98,          0.728,          0.724,            0x0,           0x0,            0,           36.719,             36.719,             58,           19.25,           0x0,             58,           20.64,           0x0,
+       24,           1945,           1600,                5,          100.00,          1.63,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.97,          0.716,          0.707,            0x0,           0x0,            0,           36.672,             36.672,           2063,           1600,                5,          100.00,          1.60,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          360.00,          0.718,          0.723,            0x0,           0x0,            0,           36.734,             36.734,             58,           19.71,           0x0,             59,           20.86,           0x0,
+       25,           1930,           1600,                5,          100.00,          1.72,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.96,          0.716,          0.707,            0x0,           0x0,            0,           36.547,             36.547,           2044,           1600,                5,          100.00,          1.68,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.91,          0.718,          0.723,            0x0,           0x0,            0,           36.828,             36.828,             59,           19.96,           0x0,             59,           21.24,           0x0,
+       26,           1931,           1500,                6,          100.00,          1.72,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          360.01,          0.703,          0.690,            0x0,           0x0,            0,           36.484,             36.484,           2045,           1600,                5,           98.89,          1.66,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          360.04,          0.718,          0.723,            0x0,           0x0,            0,           36.953,             36.953,             59,           19.97,           0x0,             60,           21.28,           0x0,
+       27,           1884,           1500,                6,          100.00,          1.78,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.97,          0.703,          0.690,            0x0,           0x0,            0,           36.469,             36.469,           1987,           1600,                4,           98.98,          1.69,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.95,          0.718,          0.724,            0x0,           0x0,            0,           36.688,             36.688,             60,           20.06,           0x0,             60,           21.15,           0x0,
+       28,           1878,           1567,                6,          100.00,          1.76,           99.99,            0.00,            0.01,            0.00,            0.00,             62,           44,          359.93,          0.703,          0.701,            0x0,           0x0,            0,           36.484,             36.484,           1985,           1600,                5,          100.00,          1.69,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.97,          0.728,          0.723,            0x0,           0x0,            0,           36.828,             36.828,             60,           20.09,           0x0,             61,           20.95,           0x0,
+       29,           1897,           1600,                5,          100.00,          1.76,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          360.00,          0.706,          0.707,            0x0,           0x0,            0,           36.453,             36.453,           1988,           1567,                5,          100.00,          1.68,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.96,          0.718,          0.717,            0x0,           0x0,            0,           36.766,             36.766,             61,           20.01,           0x0,             61,           21.18,           0x0,
+       30,           1890,           1500,                6,          100.00,          1.75,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.95,          0.706,          0.690,            0x0,           0x0,            0,           36.391,             36.391,           1981,           1600,                5,          100.00,          1.71,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          360.00,          0.718,          0.723,            0x0,           0x0,            0,           36.828,             36.828,             61,           20.09,           0x0,             61,           21.24,           0x0,
+       31,           1874,           1500,                7,          100.00,          1.77,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.94,          0.693,          0.690,            0x0,           0x0,            0,           36.359,             36.359,           1977,           1600,                5,          100.00,          1.72,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.92,          0.706,          0.723,            0x0,           0x0,            0,           36.750,             36.750,             61,           20.15,           0x0,             62,           21.32,           0x0,
+       32,           1861,           1500,                6,          100.00,          1.80,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.97,          0.703,          0.690,            0x0,           0x0,            0,           36.391,             36.391,           1988,           1600,                5,          100.00,          1.71,          100.00,            0.00,            0.00,            0.00,            0.00,             61,           45,          359.96,          0.728,          0.723,            0x0,           0x0,            0,           36.719,             36.719,             62,           20.31,           0x0,             62,           21.08,           0x0,
+       33,           1886,           1500,                6,          100.00,          1.78,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.96,          0.703,          0.689,            0x0,           0x0,            0,           36.438,             36.438,           1992,           1600,                5,          100.00,          1.71,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          359.97,          0.718,          0.723,            0x0,           0x0,            0,           36.516,             36.516,             62,           20.21,           0x0,             62,           21.11,           0x0,
+       34,           1878,           1567,                6,          100.00,          1.79,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          360.02,          0.703,          0.701,            0x0,           0x0,            0,           36.406,             36.406,           1972,           1533,                5,          100.00,          1.74,          100.00,            0.00,            0.00,            0.00,            0.00,             62,           44,          360.01,          0.708,          0.711,            0x0,           0x0,            0,           36.594,             36.594,             62,           20.15,           0x0,             62,           21.39,           0x0,
+root@neosem:~/test# ### CPUTEMP_END ###
+root@neosem:~/test# exit
+logout
