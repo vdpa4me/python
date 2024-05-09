@@ -2,6 +2,9 @@ import sys
 import os
 from os.path import basename
 
+target_iteration = "800/900"
+report_list = []
+
 
 if __name__ == '__main__':
 
@@ -31,24 +34,43 @@ if __name__ == '__main__':
 
         isDimmTest = False
 
+        cmb_num = 0
+        if "CMB1_" in read_file:
+            cmb_num = 1
+        elif "CMB2_" in read_file:
+            cmb_num = 2
+        elif "CMB3_" in read_file:
+            cmb_num = 3
+        elif "CMB4_" in read_file:
+            cmb_num = 4
+        elif "CMB5_" in read_file:
+            cmb_num = 5
+        elif "CMB6_" in read_file:
+            cmb_num = 6
+        elif "CMB7_" in read_file:
+            cmb_num = 7
+        elif "CMB8_" in read_file:
+            cmb_num = 8
+        elif "CMB9_" in read_file:
+            cmb_num = 9
+        elif "CMB10_" in read_file:
+            cmb_num = 10
+        elif "CMB11_" in read_file:
+            cmb_num = 11
+        elif "CMB12_" in read_file:
+            cmb_num = 12
+
         # initial read
         logfile = open(read_file, 'r', encoding='utf8', errors='ignore')
         current_line = logfile.readline()
         dut_list = []
-
+     
         while current_line:
             # Skip empty line
-            if current_line == '\n':
-                current_line = logfile.readline()
-                continue
-            elif "### DIMMTEMP_START ###" in current_line:
-                isDimmTest = True
-            elif "### DIMMTEMP_END ###" in current_line:
-                isDimmTest = False
-            elif "ELAPSE/TOTLDR" in current_line and isDimmTest == True:
+            if "ELAPSE/TOTLDR" in current_line:
                 #ELAPSE/TOTLDR = 20/900
                 iteration_dic = {}
-
+ 
                 tokens = current_line.split('=')
                 iteration = tokens[1]
                 iteration = iteration.replace('\n','')
@@ -87,41 +109,41 @@ if __name__ == '__main__':
 
                   
                     if "CPU0_DIMM_TEMP_A" in DIMMNO:
-                        group1_dic['1'] = DIMMTEMPVal
+                        group1_dic['A'] = DIMMTEMPVal
                         cur_grp_no = 1
                     elif "CPU0_DIMM_TEMP_B" in DIMMNO:
-                        group1_dic['2'] = DIMMTEMPVal
+                        group1_dic['B'] = DIMMTEMPVal
                         cur_grp_no = 1
                     elif "CPU0_DIMM_TEMP_C" in DIMMNO:
-                        group1_dic['3'] = DIMMTEMPVal
+                        group1_dic['C'] = DIMMTEMPVal
                         cur_grp_no = 1
                     elif "CPU0_DIMM_TEMP_D" in DIMMNO:
-                        group1_dic['4'] = DIMMTEMPVal
+                        group1_dic['D'] = DIMMTEMPVal
                         cur_grp_no = 1
                     elif "CPU0_DIMM_TEMP_E" in DIMMNO:
-                        group1_dic['5'] = DIMMTEMPVal
+                        group1_dic['E'] = DIMMTEMPVal
                         cur_grp_no = 1
                     elif "CPU0_DIMM_TEMP_F" in DIMMNO:
-                        group1_dic['6'] = DIMMTEMPVal
+                        group1_dic['F'] = DIMMTEMPVal
                         cur_grp_no = 1
 
                     elif "CPU0_DIMM_TEMP_G" in DIMMNO:
-                        group2_dic['1'] = DIMMTEMPVal
+                        group2_dic['G'] = DIMMTEMPVal
                         cur_grp_no = 2
                     elif "CPU0_DIMM_TEMP_H" in DIMMNO:
-                        group2_dic['2'] = DIMMTEMPVal
+                        group2_dic['H'] = DIMMTEMPVal
                         cur_grp_no = 2
                     elif "CPU0_DIMM_TEMP_I" in DIMMNO:
-                        group2_dic['3'] = DIMMTEMPVal
+                        group2_dic['I'] = DIMMTEMPVal
                         cur_grp_no = 2
                     elif "CPU0_DIMM_TEMP_J" in DIMMNO:
-                        group2_dic['4'] = DIMMTEMPVal
+                        group2_dic['J'] = DIMMTEMPVal
                         cur_grp_no = 2
                     elif "CPU0_DIMM_TEMP_K" in DIMMNO:
-                        group2_dic['5'] = DIMMTEMPVal
+                        group2_dic['K'] = DIMMTEMPVal
                         cur_grp_no = 2
                     elif "CPU0_DIMM_TEMP_L" in DIMMNO:
-                        group2_dic['6'] = DIMMTEMPVal
+                        group2_dic['L'] = DIMMTEMPVal
                         cur_grp_no = 2
 
                     elif "CPU1_DIMM_TEMP_A" in DIMMNO:
@@ -224,6 +246,14 @@ if __name__ == '__main__':
                 iteration_dic['g4'] = group4_dic
 
                 total_measurment_list.append(iteration_dic)
+
+                if target_iteration in iteration:
+                    print("Target iteration found: " + target_iteration)
+                    report_dic = {}
+                    report_dic['CMB'] = cmb_num
+                    report_dic['value'] = iteration_dic
+                    report_list.append(report_dic)
+                    
             current_line = logfile.readline()
         logfile.close()
 
@@ -233,10 +263,10 @@ if __name__ == '__main__':
             f.write("1. DIMM Temperature Uniformity \n")
             f.write("##############################################\n")
             f.write("\n")
-            f.write("Iteration,CPU0_A,CPU0_B,CPU0_C,CPU0_D,CPU0_E,CPU0_F,G1_MIN,G1_MAX,G1_DIFF \
-                              ,CPU0_G,CPU0_H,CPU0_I,CPU0_J,CPU0_K,CPU0_L,G2_MIN,G2_MAX,G2_DIFF \
-                              ,CPU1_A,CPU1_B,CPU1_C,CPU1_D,CPU0_E,CPU1_F,G3_MIN,G3_MAX,G3_DIFF \
-                              ,CPU1_G,CPU1_H,CPU1_I,CPU1_J,CPU1_K,CPU1_L,G4_MIN,G4_MAX,G4_DIFF \n")
+            f.write("Iteration,CPU1_F,CPU1_E,CPU1_D,CPU1_C,CPU1_B,CPU1_A,G3_MIN,G3_MAX,G3_DIFF,\
+                              ,CPU1_G,CPU1_H,CPU1_I,CPU1_J,CPU1_K,CPU1_L,G4_MIN,G4_MAX,G4_DIFF,\
+                              ,CPU0_F,CPU0_E,CPU0_D,CPU0_C,CPU0_B,CPU0_A,G1_MIN,G1_MAX,G1_DIFF,\
+                              ,CPU0_G,CPU0_H,CPU0_I,CPU0_J,CPU0_K,CPU0_L,G2_MIN,G2_MAX,G2_DIFF \n")
                        
             for i in range(0, len(total_measurment_list)):
                 iteration = total_measurment_list[i]['iteration'] 
@@ -245,11 +275,46 @@ if __name__ == '__main__':
                 group3_dic = total_measurment_list[i]['g3']
                 group4_dic = total_measurment_list[i]['g4']
 
-                f.write(iteration+","+str(group1_dic['1'])+","+str(group1_dic['2'])+","+str(group1_dic['3'])+","+str(group1_dic['4'])+","+str(group1_dic['5'])+","+str(group1_dic['6'])+","+str(group1_dic['MIN'])+","+str(group1_dic['MAX'])+","+str(group1_dic['DIFF'])+","+
-                              str(group2_dic['1'])+","+str(group2_dic['2'])+","+str(group2_dic['3'])+","+str(group2_dic['4'])+","+str(group2_dic['5'])+","+str(group2_dic['6'])+","+str(group2_dic['MIN'])+","+str(group2_dic['MAX'])+","+str(group2_dic['DIFF'])+","+
-                              str(group3_dic['A'])+","+str(group3_dic['B'])+","+str(group3_dic['C'])+","+str(group3_dic['D'])+","+str(group3_dic['E'])+","+str(group3_dic['F'])+","+str(group3_dic['MIN'])+","+str(group3_dic['MAX'])+","+str(group3_dic['DIFF'])+","+
-                              str(group4_dic['G'])+","+str(group4_dic['H'])+","+str(group4_dic['I'])+","+str(group4_dic['J'])+","+str(group4_dic['K'])+","+str(group4_dic['L'])+","+str(group4_dic['MIN'])+","+str(group4_dic['MAX'])+","+str(group4_dic['DIFF'])+"\n")
+                f.write(iteration+","+str(group3_dic['F'])+","+str(group3_dic['E'])+","+str(group3_dic['D'])+","+str(group3_dic['C'])+","+str(group3_dic['B'])+","+str(group3_dic['A'])+ \
+                                  ","+str(group3_dic['MIN'])+","+str(group3_dic['MAX'])+","+str(group3_dic['DIFF'])+","+ \
+                                  ","+str(group4_dic['G'])+","+str(group4_dic['H'])+","+str(group4_dic['I'])+","+str(group4_dic['J'])+","+str(group4_dic['K'])+","+str(group4_dic['L'])+ \
+                                  ","+str(group4_dic['MIN'])+","+str(group4_dic['MAX'])+","+str(group4_dic['DIFF'])+","+ \
+                                  ","+str(group1_dic['F'])+","+str(group1_dic['E'])+","+str(group1_dic['D'])+","+str(group1_dic['C'])+","+str(group1_dic['B'])+","+str(group1_dic['A'])+ \
+                                  ","+str(group1_dic['MIN'])+","+str(group1_dic['MAX'])+","+str(group1_dic['DIFF'])+","+ \
+                                  ","+str(group2_dic['G'])+","+str(group2_dic['H'])+","+str(group2_dic['I'])+","+str(group2_dic['J'])+","+str(group2_dic['K'])+","+str(group2_dic['L'])+ \
+                                  ","+str(group2_dic['MIN'])+","+str(group2_dic['MAX'])+","+str(group2_dic['DIFF'])+"\n")
             f.write("\n")
             f.close()
     
+
+    # wirte to report
+    with open("TotalReport.csv", 'w') as rf:
+        rf.write("##############################################\n")
+        rf.write("1. DIMM Temperature Uniformity \n")
+        rf.write("##############################################\n")
+        rf.write("\n")
+        rf.write("CMB,Iteration,CPU1_F,CPU1_E,CPU1_D,CPU1_C,CPU1_B,CPU1_A,G3_MIN,G3_MAX,G3_DIFF,\
+                            ,CPU1_G,CPU1_H,CPU1_I,CPU1_J,CPU1_K,CPU1_L,G4_MIN,G4_MAX,G4_DIFF,\
+                            ,CPU0_F,CPU0_E,CPU0_D,CPU0_C,CPU0_B,CPU0_A,G1_MIN,G1_MAX,G1_DIFF,\
+                            ,CPU0_G,CPU0_H,CPU0_I,CPU0_J,CPU0_K,CPU0_L,G2_MIN,G2_MAX,G2_DIFF \n")
+        report_list.sort(key=lambda x: x['CMB'], reverse=True)
+        for i in range(0, len(report_list)):
+            cmb_num = report_list[i]['CMB']
+            iteration = report_list[i]['value']['iteration'] 
+            group1_dic = report_list[i]['value']['g1']
+            group2_dic = report_list[i]['value']['g2']
+            group3_dic = report_list[i]['value']['g3']
+            group4_dic = report_list[i]['value']['g4']
+
+            rf.write(str(cmb_num)+","+iteration+","+str(group3_dic['F'])+","+str(group3_dic['E'])+","+str(group3_dic['D'])+","+str(group3_dic['C'])+","+str(group3_dic['B'])+","+str(group3_dic['A'])+ \
+                                ","+str(group3_dic['MIN'])+","+str(group3_dic['MAX'])+","+str(group3_dic['DIFF'])+","+ \
+                                ","+str(group4_dic['G'])+","+str(group4_dic['H'])+","+str(group4_dic['I'])+","+str(group4_dic['J'])+","+str(group4_dic['K'])+","+str(group4_dic['L'])+ \
+                                ","+str(group4_dic['MIN'])+","+str(group4_dic['MAX'])+","+str(group4_dic['DIFF'])+","+ \
+                                ","+str(group1_dic['F'])+","+str(group1_dic['E'])+","+str(group1_dic['D'])+","+str(group1_dic['C'])+","+str(group1_dic['B'])+","+str(group1_dic['A'])+ \
+                                ","+str(group1_dic['MIN'])+","+str(group1_dic['MAX'])+","+str(group1_dic['DIFF'])+","+ \
+                                ","+str(group2_dic['G'])+","+str(group2_dic['H'])+","+str(group2_dic['I'])+","+str(group2_dic['J'])+","+str(group2_dic['K'])+","+str(group2_dic['L'])+ \
+                                ","+str(group2_dic['MIN'])+","+str(group2_dic['MAX'])+","+str(group2_dic['DIFF'])+"\n")
+        rf.close()
+    
+
 
