@@ -1,0 +1,2 @@
+python cpu_test_parser_type3.py
+pause

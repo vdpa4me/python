@@ -85,19 +85,18 @@ if __name__ == '__main__':
                 cpu0_temp_list.append(tempval)
                 cpu0_power_list.append(powerval)
               
-            elif "CPU1" in current_line:
-                new_source = ' '.join(current_line.split())
-                new_source = new_source.replace(' ', ',')   
-                #0,1   ,2,3,4   , 5  ,6,   7 ,8,9 ,10    ,11  ,12  ,13  ,14  ,15,16,17,18,19,20    ,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55  
-                #0,CPU0,-,-,1785,1567,1,74.91,3.99,100.00,0.00,0.00,0.00,0.00,- ,- ,- ,57,45,360.02,0.691,0.707,0x0,0x0,0,37.469,37.469
-                tokens = new_source.split(',')
-                temp = tokens[17]
-                power = tokens[19]
-                print("CPU1 - TEMP: " + temp + " POWER: " + power +"\n")
-                tempval = int(temp)
-                powerval = float(power)    
-                cpu1_temp_list.append(tempval)
-                cpu1_power_list.append(powerval)
+            elif "CPU1" in current_line and isCPULog == True:
+                # new_source = ' '.join(current_line.split())
+                # new_source = new_source.replace(' ', ',')   
+                # tokens = current_line.split(',')
+                # temp = tokens[18]
+                # power = tokens[20]
+                # tempval = int(temp)
+                # powerval = float(power)    
+                # print("CPU1 - TEMP: " + temp + " POWER: " + power +"\n")
+                # cpu1_temp_list.append(tempval)
+                # cpu1_power_list.append(powerval)
+                print(current_line)
             current_line = logfile.readline()
 
             
@@ -118,75 +117,38 @@ if __name__ == '__main__':
             sum_cpu1_power = 0
             cpu1_mesurement_cnt = 0  
 
-            if(len(cpu0_temp_list) == len(cpu0_power_list)):
-                f.write("CMB#, Index, CPU0 Temperature , CPU0 Power, CPU1 Temperature, CPU1 Power\n")
-                for i in range(0, len(cpu0_temp_list)):
-                    cpu0_mesurement_cnt += 1
-                    if max_cpu0_temp < int(cpu0_temp_list[i]):
-                        max_cpu0_temp = int(cpu0_temp_list[i])
-                    sum_cpu0_temp += int(cpu0_temp_list[i])   
-                    sum_cpu0_power += float(cpu0_power_list[i])
-
-                    cpu1_mesurement_cnt += 1
-                    if max_cpu1_temp < int(cpu1_temp_list[i]):
-                        max_cpu1_temp = int(cpu1_temp_list[i])
-                    sum_cpu1_temp += int(cpu1_temp_list[i])   
-                    sum_cpu1_power += float(cpu1_power_list[i])
-                    f.write(str(cmb_num)+","+str(cpu0_mesurement_cnt)+","+str(cpu0_temp_list[i]) + "," + str(cpu0_power_list[i])+ ","+str(cpu1_temp_list[i]) + "," + str(cpu1_power_list[i]) +"\n")
+            f.write("CMB#, CPU#, Index, CPU0 Temperature,CPU0 Power,CPU1 Temperature,CPU1 Power\n")
+            for i in range(0, len(cpu0_temp_list)):
+                cpu0_mesurement_cnt += 1
+                if max_cpu0_temp < int(cpu0_temp_list[i]):
+                    max_cpu0_temp = int(cpu0_temp_list[i])
+                sum_cpu0_temp += int(cpu0_temp_list[i])   
+                sum_cpu0_power += float(cpu0_power_list[i])
+                f.write(str(cmb_num)+",0,"+str(cpu0_mesurement_cnt)+","+str(cpu0_temp_list[i]) + "," + str(cpu0_power_list[i]) +"\n")
                 
-                
-                f.write("CPU0 MAX TMP(C)"+ "," + str(max_cpu0_temp) + "\n")
-                f.write("CPU0 AVG TMP(C)"+ "," + str(round(sum_cpu0_temp/cpu0_mesurement_cnt)) + "\n")
-                f.write("CPU0 AVG PWR(Watt.)"+ "," + str(round(sum_cpu0_power/cpu0_mesurement_cnt)) + "\n")
-                
-                f.write("CPU1 MAX TMP(C)"+ "," + str(max_cpu1_temp) + "\n")
-                f.write("CPU1 AVG TMP(C)"+ "," + str(round(sum_cpu1_temp/cpu1_mesurement_cnt)) + "\n")
-                f.write("CPU1 AVG PWR(Watt.)"+ "," + str(round(sum_cpu1_power/cpu1_mesurement_cnt)) + "\n")
+            # for i in range(0, len(cpu1_temp_list)): 
+            #     cpu1_mesurement_cnt += 1
+            #     if max_cpu1_temp < int(cpu1_temp_list[i]):
+            #         max_cpu1_temp = int(cpu1_temp_list[i])
+            #     sum_cpu1_temp += int(cpu1_temp_list[i])   
+            #     sum_cpu1_power += float(cpu1_power_list[i])
+            #     f.write(str(cmb_num)+",1,"+str(cpu1_mesurement_cnt)+","+cpu1_temp_list[i] + "," + cpu1power_list[i] +"\n")
 
-                cpu_max_temp_dic = {}
-                cpu_max_temp_dic['CMB'] = cmb_num
-                cpu_max_temp_dic['cpu0_max_temp'] = max_cpu0_temp
-                cpu_max_temp_dic['cpu1_max_temp'] = max_cpu1_temp
-                report_list.append(cpu_max_temp_dic)
-                
-            else:
-                f.write("CMB#, CPU#, Index, Temperature , Power\n")
-                for i in range(0, len(cpu0_temp_list)):
-                    cpu0_mesurement_cnt += 1
-                    if max_cpu0_temp < int(cpu0_temp_list[i]):
-                        max_cpu0_temp = int(cpu0_temp_list[i])
-                    sum_cpu0_temp += int(cpu0_temp_list[i])   
-                    sum_cpu0_power += float(cpu0_power_list[i])
-                    f.write(str(cmb_num)+",0,"+str(cpu0_mesurement_cnt)+","+str(cpu0_temp_list[i]) + "," + str(cpu0_power_list[i]) +"\n")
-    
+               
 
-                f.write("CPU0 MAX TMP(C)"+ "," + str(max_cpu0_temp) + "\n")
-                f.write("CPU0 AVG TMP(C)"+ "," + str(round(sum_cpu0_temp/cpu0_mesurement_cnt)) + "\n")
-                f.write("CPU0 AVG PWR(Watt.)"+ "," + str(round(sum_cpu0_power/cpu0_mesurement_cnt)) + "\n")
+            f.write("CPU0 MAX TMP(C)"+ "," + str(max_cpu0_temp) + "\n")
+            f.write("CPU0 AVG TMP(C)"+ "," + str(round(sum_cpu0_temp/cpu0_mesurement_cnt)) + "\n")
+            f.write("CPU0 AVG PWR(Watt.)"+ "," + str(round(sum_cpu0_power/cpu0_mesurement_cnt)) + "\n")
 
-                
-                f.write("\n")
-                f.write("\n")
-                f.write("\n")
-                f.write("CMB#, CPU#, Index, Temperature , Power\n")
-
-                for i in range(0, len(cpu1_temp_list)):
-                    cpu1_mesurement_cnt += 1
-                    if max_cpu1_temp < int(cpu1_temp_list[i]):
-                        max_cpu1_temp = int(cpu1_temp_list[i])
-                    sum_cpu1_temp += int(cpu1_temp_list[i])   
-                    sum_cpu1_power += float(cpu1_power_list[i])
-                    f.write(str(cmb_num)+",1,"+str(cpu0_mesurement_cnt)+","+str(cpu0_temp_list[i]) + "," + str(cpu0_power_list[i]) +"\n")            
-
-                f.write("CPU1 MAX TMP(C)"+ "," + str(max_cpu1_temp) + "\n")
-                f.write("CPU1 AVG TMP(C)"+ "," + str(round(sum_cpu1_temp/cpu1_mesurement_cnt)) + "\n")
-                f.write("CPU1 AVG PWR(Watt.)"+ "," + str(round(sum_cpu1_power/cpu1_mesurement_cnt)) + "\n")
-
-                cpu_max_temp_dic = {}
-                cpu_max_temp_dic['CMB'] = cmb_num
-                cpu_max_temp_dic['cpu0_max_temp'] = max_cpu0_temp
-                cpu_max_temp_dic['cpu1_max_temp'] = max_cpu1_temp
-                report_list.append(cpu_max_temp_dic)
+            #f.write("CPU1 MAX TMP(C)"+ "," + str(max_cpu1_temp) + "\n")
+            #f.write("CPU1 AVG TMP(C)"+ "," + str(round(sum_cpu1_temp/cpu1_mesurement_cnt)) + "\n")
+            #f.write("CPU1 AVG PWR(Watt.)"+ "," + str(round(sum_cpu1_power/cpu1_mesurement_cnt)) + "\n")
+            #f.write("\n")
+            cpu_max_temp_dic = {}
+            cpu_max_temp_dic['CMB'] = cmb_num
+            cpu_max_temp_dic['cpu0_max_temp'] = max_cpu0_temp
+            #cpu_max_temp_dic['cpu1_max_temp'] = max_cpu1_temp
+            report_list.append(cpu_max_temp_dic)
 
         f.close()
 
@@ -196,11 +158,11 @@ if __name__ == '__main__':
         rf.write("1. CPU MAX TEMP\n")
         rf.write("##############################################\n")
         rf.write("\n")
-        rf.write("CMB# ,CPU0 MAX TMP, CPU1 MAX TMP\n")
+        rf.write("CMB# ,CPU0 MAX TMP\n")
         report_list.sort(key=lambda x: x['CMB'], reverse=True)
         for i in range(0, len(report_list)):
             cpu_max_temp_dic = report_list[i]
-            rf.write(str(cpu_max_temp_dic['CMB'])+","+str(cpu_max_temp_dic['cpu0_max_temp'])+","+str(cpu_max_temp_dic['cpu1_max_temp'])+"\n")
+            rf.write(str(cpu_max_temp_dic['CMB'])+","+str(cpu_max_temp_dic['cpu0_max_temp'])+"\n")
         rf.write("\n")
         rf.close()
     
