@@ -2,7 +2,7 @@ import sys
 import os
 from os.path import basename
 
-target_iteration = "800/900"
+target_iteration = "700/900"
 report_list = []
 
 
@@ -92,9 +92,15 @@ if __name__ == '__main__':
                 g4maxVal = 0
 
                 dimm_cnt = 0
+                
+                abnormalcnt = 0
                 while(dimm_cnt < 24):
                     current_line = logfile.readline()
                     if "CPU0_" not in current_line and "CPU1_" not in current_line:
+                        abnormalcnt = abnormalcnt + 1
+                        if abnormalcnt > 30 :
+                            print("ERROR:"+read_file);
+                            break;
                         continue
                     dimm_cnt += 1
                    
@@ -102,6 +108,8 @@ if __name__ == '__main__':
                     DIMMNO = tokens[0]
                     DIMMTEMP = tokens[1]
                     DIMMTEMP = DIMMTEMP.replace(' degrees C','')
+                    if "no reading" in DIMMTEMP:
+                        DIMMTEMP = 0
                     DIMMTEMPVal = int(DIMMTEMP)
 
 
@@ -223,36 +231,36 @@ if __name__ == '__main__':
                     else:
                         print("ERROR: " + DIMMNO)
                         exit(1)
+                if abnormalcnt <= 30:
+                    group1_dic['MIN'] = g1minVal
+                    group1_dic['MAX'] = g1maxVal
+                    group1_dic['DIFF'] = g1maxVal - g1minVal
 
-                group1_dic['MIN'] = g1minVal
-                group1_dic['MAX'] = g1maxVal
-                group1_dic['DIFF'] = g1maxVal - g1minVal
+                    group2_dic['MIN'] = g2minVal
+                    group2_dic['MAX'] = g2maxVal
+                    group2_dic['DIFF'] = g2maxVal - g2minVal
 
-                group2_dic['MIN'] = g2minVal
-                group2_dic['MAX'] = g2maxVal
-                group2_dic['DIFF'] = g2maxVal - g2minVal
+                    group3_dic['MIN'] = g3minVal
+                    group3_dic['MAX'] = g3maxVal
+                    group3_dic['DIFF'] = g3maxVal - g3minVal
 
-                group3_dic['MIN'] = g3minVal
-                group3_dic['MAX'] = g3maxVal
-                group3_dic['DIFF'] = g3maxVal - g3minVal
+                    group4_dic['MIN'] = g4minVal
+                    group4_dic['MAX'] = g4maxVal
+                    group4_dic['DIFF'] = g4maxVal - g4minVal
 
-                group4_dic['MIN'] = g4minVal
-                group4_dic['MAX'] = g4maxVal
-                group4_dic['DIFF'] = g4maxVal - g4minVal
+                    iteration_dic['g1'] = group1_dic
+                    iteration_dic['g2'] = group2_dic
+                    iteration_dic['g3'] = group3_dic
+                    iteration_dic['g4'] = group4_dic
 
-                iteration_dic['g1'] = group1_dic
-                iteration_dic['g2'] = group2_dic
-                iteration_dic['g3'] = group3_dic
-                iteration_dic['g4'] = group4_dic
+                    total_measurment_list.append(iteration_dic)
 
-                total_measurment_list.append(iteration_dic)
-
-                if target_iteration in iteration:
-                    print("Target iteration found: " + target_iteration)
-                    report_dic = {}
-                    report_dic['CMB'] = cmb_num
-                    report_dic['value'] = iteration_dic
-                    report_list.append(report_dic)
+                    if target_iteration in iteration:
+                        print("Target iteration found: " + target_iteration)
+                        report_dic = {}
+                        report_dic['CMB'] = cmb_num
+                        report_dic['value'] = iteration_dic
+                        report_list.append(report_dic)
                     
             current_line = logfile.readline()
         logfile.close()
