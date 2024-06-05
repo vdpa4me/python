@@ -22,6 +22,7 @@ if __name__ == '__main__':
                 temp_dic['read'] = file_path
                 file_list.append(temp_dic)
 
+    
     for file_dic in file_list:
         read_file = file_dic['read']
 
@@ -31,14 +32,39 @@ if __name__ == '__main__':
         # initial read
         logfile = open(read_file, 'r', encoding='utf8', errors='ignore')
         current_line = logfile.readline()    
+        
+        isSkip = False
+
         while current_line:
             # Skip empty line
-            
-            if "NEOSEM TEST REPORT FOR RACK" in current_line:
+            if "Device Not selected" in current_line:
+                isSkip = True
+                break
+
+            elif "NEOSEM TEST REPORT FOR RACK" in current_line:
                 #NEOSEM TEST REPORT FOR RACK  00 Port 113 Device 00
                 result = re.findall(r'\d+', current_line)
                 port = result[1]
+                print("port:"+port)
                 port_info_dic['port'] = port
+            elif "ANDROMEDA TEST REPORT FOR RACK" in current_line:
+                #ANDROMEDA TEST REPORT FOR RACK  00 Port 07 Device 00
+                result = re.findall(r'\d+', current_line)
+                port = result[1]
+                print("port:"+port)
+                port_info_dic['port'] = port
+            elif "Model #:" in current_line:
+                tokens = current_line.split(':')
+                model = tokens[1].replace('\n','')
+                model = model.replace(' ','')
+                port_info_dic['model'] = model
+                print("model:"+model)
+            #Rev Level:     1107AXLA         Capacity:     000000001DCF32B0
+            elif "Rev Level:" in current_line:
+                tokens = current_line.split(' ')
+                rev = tokens[6]
+                port_info_dic['rev'] = rev
+                print("rev:"+rev)
             elif "User MN     S/N" in current_line:
                 current_line = logfile.readline() # read one more line
                 tokens = current_line.split(' ')
@@ -53,21 +79,23 @@ if __name__ == '__main__':
                 port_info_dic['duration'] = tmp
             current_line = logfile.readline()
         logfile.close()
-        report_list.append(port_info_dic)
 
-
+        if isSkip == False:
+            report_list.append(port_info_dic)
+        
     # wirte to report
     with open("Total.csv", 'w') as rf:
         rf.write("##############################################\n")
         rf.write("Total \n")
         rf.write("##############################################\n")
         rf.write("\n")
-        rf.write("No, Port, SSD S/N, Duration\n")
+        rf.write("No, Port, Model, FW Rev, SSD S/N, Duration\n")
         report_list.sort(key=lambda x: x['port'], reverse=False)
         cnt = 1
         for i in range(0, len(report_list)):
             port_info_dic = report_list[i]
-            rf.write( str(cnt)+","+  str(port_info_dic['port'])+","+  str(port_info_dic['sn'])+","+ str(port_info_dic['duration'])+"\n")
+            print(port_info_dic)
+            rf.write( str(cnt)+","+ str(port_info_dic['port'])+","+ str(port_info_dic['model'])+","+str(port_info_dic['rev'])+","+  str(port_info_dic['sn'])+","+ str(port_info_dic['duration'])+"\n")
             cnt = cnt + 1
         rf.write("\n")
         rf.close()
