@@ -4,6 +4,7 @@ import re
 from os.path import basename
 
 report_list = []
+smart_list = []
 
 if __name__ == '__main__':
 
@@ -16,14 +17,54 @@ if __name__ == '__main__':
         for file in files:
             file_path = os.path.join(root, file)
             path,ext = os.path.splitext(file_path)
-            if ext in '.rep' :
+            if ext in '.csv' :
                 temp_dic = {}
                 # new file for writing
                 temp_dic['read'] = file_path
+                file_name = basename(file_path)
+                file_name = file_name.replace('.csv','')
+                temp_dic['read_file_only'] = file_name
                 file_list.append(temp_dic)
 
     
     for file_dic in file_list:
+        read_file = file_dic['read']
+        read_file_only = file_dic['read_file_only']
+
+        # dictionary for storing the data
+        dut_info_dic = {}
+        dut_info_dic['1sn'] = read_file_only
+
+        # initial read
+        logfile = open(read_file, 'r', encoding='utf8', errors='ignore')
+        current_line = logfile.readline()    
+        
+        while current_line:
+            # Skip empty line
+            if "Byte 0" in current_line:
+                tokens = current_line.split(',')
+                key = tokens[1].replace(' ','')
+                value = tokens[2].replace(' ','')
+                value = value.replace('\n','')
+                dut_info_dic[key] = value
+            current_line = logfile.readline()
+        logfile.close()
+
+        smart_list.append(dut_info_dic)
+
+    # to rep parsing
+    rfile_list = []
+    for (root, directories, files) in os.walk(dir_name):
+        for file in files:
+            file_path = os.path.join(root, file)
+            path,ext = os.path.splitext(file_path)
+            if ext in '.rep' :
+                temp_dic = {}
+                # new file for writing
+                temp_dic['read'] = file_path
+                rfile_list.append(temp_dic)
+    
+    for file_dic in rfile_list:
         read_file = file_dic['read']
 
         # dictionary for storing the data
@@ -70,39 +111,58 @@ if __name__ == '__main__':
             elif "User MN     S/N" in current_line:
                 current_line = logfile.readline() # read one more line
                 tokens = current_line.split(' ')
-
-                #dump tokens
-                #for i in range(0,len(tokens)):
-                #    print("["+str(i)+"]"+tokens[i])
-                #exit(1)
                 port_info_dic['sn'] = tokens[2]
                 tmp = tokens[18]
                 tmp = tmp.replace('\n','')  
                 port_info_dic['duration'] = tmp
+
+                for i in range(0,len(smart_list)):
+                    dut_info_dic = smart_list[i]
+                    sn1 = dut_info_dic['1sn']
+                    sn1 = sn1.replace(' ','')   
+                    sn2 = port_info_dic['sn']
+                    sn2 = sn2.replace(' ','')
+                    if sn1 == sn2:
+                        port_info_dic['smart'] = dut_info_dic
+                        print("S/N matching : "+sn1)
+                        break
             current_line = logfile.readline()
         logfile.close()
-
+    
         if isASPMFailed == True:
             port_info_dic['aspm'] = "Failed"
         else:
-            port_info_dic['aspm'] = ""
+            port_info_dic['aspm'] = "Passed"
 
         if isSkip == False:
+            print("[PORT_DIC_APPEND]")
             report_list.append(port_info_dic)
+
         
     # wirte to report
-    with open("Total.csv", 'w') as rf:
-        rf.write("##############################################\n")
-        rf.write("Total \n")
-        rf.write("##############################################\n")
-        rf.write("\n")
-        rf.write("No, Port, Model, FW Rev, SSD S/N, Duration, ASPM fail\n")
+    with open("SmartRepTotal.csv", 'w') as rf:
+        
+        report_list.sort(key=lambda x: x['port'], reverse=False)
+
+        header = "no,Port, Model, FW Rev, SSD S/N, Duration, ASPM fail"
+        header_dut_info_dic = smart_list[0]
+        for key in header_dut_info_dic.keys():
+            header = header + "," + key 
+        header = header + "\n"
+        print(header)   
+        rf.write(header)
+
         report_list.sort(key=lambda x: x['port'], reverse=False)
         cnt = 1
         for i in range(0, len(report_list)):
             port_info_dic = report_list[i]
-            print(port_info_dic)
-            rf.write( str(cnt)+","+ str(port_info_dic['port'])+","+ str(port_info_dic['model'])+","+str(port_info_dic['rev'])+","+  str(port_info_dic['sn'])+","+ str(port_info_dic['duration'])+","+port_info_dic['aspm']+"\n")
+            body = str(cnt)+","+ str(port_info_dic['port'])+","+ str(port_info_dic['model'])+","+str(port_info_dic['rev'])+","+  str(port_info_dic['sn'])+","+ str(port_info_dic['duration'])+","+port_info_dic['aspm']
+            dut_info_dic = port_info_dic['smart']
+            for key in dut_info_dic.keys():
+                body = body + ","+dut_info_dic[key]
+            body = body + "\n"
+            print(body)
+            rf.write(body)
             cnt = cnt + 1
         rf.write("\n")
         rf.close()
