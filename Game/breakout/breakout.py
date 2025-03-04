@@ -21,12 +21,12 @@ pygame.mixer.init()
 hit_sound = pygame.mixer.Sound("1.mp3")  # 효과음 파일 로드
 
 # 공, 패들, 벽돌 설정
-ball_speed = [4, -4]
+ball_speed = [5, -5]
 ball = pygame.Rect(WIDTH // 2 - 15, HEIGHT // 2 - 15, 30, 30)
 paddle = pygame.Rect(WIDTH // 2 - 60, HEIGHT - 20, 120, 10)
 paddle_speed = 15
 brick_width = 60
-brick_height = 30
+brick_height = 40
 bricks = [pygame.Rect(col * (brick_width + 5) + 35, row * (brick_height + 5) + 50, brick_width, brick_height)
           for row in range(5) for col in range(10)]
 

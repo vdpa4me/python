@@ -5,16 +5,16 @@ import random
 pygame.init()
 
 # 배경 음악 설정
-#pygame.mixer.music.load("background.mp3")
-#pygame.mixer.music.play(-1)  # 무한 반복 재생
+pygame.mixer.music.load("background.mp3")
+pygame.mixer.music.play(-1)  # 무한 반복 재생
 
 # 화면 설정
 WIDTH, HEIGHT = 300, 600
 BLOCK_SIZE = 30
 COLUMNS = WIDTH // BLOCK_SIZE
 ROWS = HEIGHT // BLOCK_SIZE
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Tetris Game")
+screen = pygame.display.set_mode((WIDTH, HEIGHT + 50))  # 상단 공간 추가
+pygame.display.set_caption("LV:1, Remain:5")
 
 # 색상 정의
 WHITE = (255, 255, 255)
@@ -87,8 +87,9 @@ def draw_grid():
         text = font.render(f'Level: {level}', True, (0, 0, 0))
     screen.blit(text, (10, 10))
     remaining = clear_goal[level] - lines_cleared
-    remaining_text = font.render(f'Lines to Next Level: {remaining}', True, (255, 255, 255))
-    screen.blit(remaining_text, (10, 40))
+    remaining_text = font.render(f'Lines to Next Level: {remaining}', True, (0, 0, 0))
+    #screen.blit(remaining_text, (10, 40))
+    pygame.display.set_caption(f"LV: {level}, Rmain: {clear_goal[level] - lines_cleared}")
     pygame.display.flip()
 
 
