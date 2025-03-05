@@ -49,7 +49,7 @@ def rename_mp3_files(directory):
             csvwriter = csv.writer(csvfile)
             for i in range(0, len(final_files) - 1, 2):
                 row = [
-                    "basic", 1, 1, 1, "한글", "영어", 
+                    "kids", 1, 1, 1, "한글", "영어", 
                     final_files[i + 1][2] if i + 1 < len(final_files) else "",  # Second file (한글)
                     final_files[i][2]  # First file (영어)
                 ]
