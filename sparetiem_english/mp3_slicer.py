@@ -27,7 +27,8 @@ if len(sys.argv) > 1:
     print(f"Arguments: {sys.argv[1:]}")
     audio_path = sys.argv[1]
 else:
-    audio_path = "basic_day2.mp3"
+    exit(2)
+
 # Load the uploaded audio file
 
 audio = AudioSegment.from_file(audio_path, format="mp3")
@@ -36,7 +37,7 @@ audio = AudioSegment.from_file(audio_path, format="mp3")
 base_name = os.path.splitext(os.path.basename(audio_path))[0]
 
 # Detect silence (longer than 2 seconds, -40 dBFS is considered silence)
-silent_chunks = silence.detect_silence(audio, min_silence_len=900, silence_thresh=-40)
+silent_chunks = silence.detect_silence(audio, min_silence_len=800, silence_thresh=-40)
 
 # Adjust start and end times for easier splitting
 silent_chunks = [(start, end) for start, end in silent_chunks]
